@@ -4,16 +4,29 @@
 @theme {
   --color-primary: #84cc16;
   --color-primary-light: #a3e635;
+
+  /* Quiet Luxury & Biophilic Palette */
+  --color-mocha: #A38F85;
+  --color-champagne: #F7E7CE;
+  --color-sage: #9CAF88;
+  --color-sand: #F5F5F0;
+  /* Warm Neutral Base */
+  --color-soft-light: #FBFBFA;
+  /* Eye-strain reduction white */
+  --color-slate-800: #1e293b;
+  --color-slate-600: #475569;
+
   --color-surface-gray: #f8fafc;
-  
-  --font-sans: "Plus Jakarta Sans", sans-serif;
-  
+
+  --font-sans: "Plus Jakarta Sans", "Outfit", sans-serif;
+
   --radius-2xl: 1rem;
   --radius-3xl: 1.5rem;
+  --radius-4xl: 2rem;
 }
 
 @layer base {
   body {
-    @apply bg-white font-sans text-slate-700;
+    @apply bg-sand font-sans text-slate-700 antialiased;
   }
 }

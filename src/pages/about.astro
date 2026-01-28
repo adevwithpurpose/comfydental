@@ -1,0 +1,91 @@
+---
+import Layout from "../layouts/Layout.astro";
+import DoctorBio from "../components/DoctorBio.astro";
+---
+
+<Layout title="About Us - Comfy Dental">
+    <section class="bg-surface-gray py-20 text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-bold text-slate-800 mb-6">
+                About Comfy Dental
+            </h1>
+            <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+                Reimagining the dental experience in Lahore with a focus on
+                anxiety-free, premium care.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2">
+                    <!-- Clinic Images Grid -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="col-span-2">
+                            <img
+                                src="/clinic-waiting-area.jpg"
+                                class="rounded-4xl shadow-2xl w-full object-cover aspect-video"
+                                alt="Comfy Dental Waiting Area - Boutique Ambiance"
+                            />
+                        </div>
+                        <div>
+                            <img
+                                src="/clinic-lounge.jpg"
+                                class="rounded-3xl shadow-xl w-full object-cover aspect-square"
+                                alt="Relaxation Lounge"
+                            />
+                        </div>
+                        <div>
+                            <img
+                                src="/clinic-room.jpg"
+                                class="rounded-3xl shadow-xl w-full object-cover aspect-square"
+                                alt="State-of-the-art Treatment Room"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-slate-800 mb-6">
+                        The "Comfy" Philosophy
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed mb-6 text-lg">
+                        It started with a simple observation: <strong
+                            >People hate going to the dentist.</strong
+                        > The sights, the sounds, the clinical smell—it all triggers
+                        anxiety.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed mb-6 text-lg">
+                        Dr. Anam Shahzad founded Comfy Dental to change that. We
+                        believed that high-end medical care could be delivered
+                        in an environment that feels more like a spa than a
+                        clinic. From our pain-free injection techniques to our
+                        noise-canceling headphones and relaxing ambiance, every
+                        detail is designed to put you at ease.
+                    </p>
+                    <div class="flex gap-4">
+                        <div class="pl-4 border-l-4 border-primary">
+                            <p class="font-bold text-slate-800">
+                                Pain-Free Promise
+                            </p>
+                            <p class="text-slate-500 text-sm">
+                                Advanced anesthetics & gentle touch.
+                            </p>
+                        </div>
+                        <div class="pl-4 border-l-4 border-primary">
+                            <p class="font-bold text-slate-800">
+                                Premium Materials
+                            </p>
+                            <p class="text-slate-500 text-sm">
+                                US/German FDA approved products only.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reusing Doctor Bio Component but maybe we hide the 'Read Full Bio' button if I could pass props, but standard usage is fine for now -->
+    <DoctorBio />
+</Layout>

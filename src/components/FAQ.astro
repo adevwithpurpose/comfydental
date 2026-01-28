@@ -1,0 +1,103 @@
+---
+const faqs = [
+    {
+        question: "Is dental treatment at Comfy Dental really pain-free?",
+        answer: "Yes. We specialize in anxiety-free dentistry. By combining advanced techniques like Wand™ computer-aided anesthesia, conscious sedation, and a 'soft-touch' clinical approach, we ensure you feel comfortable and relaxed throughout your procedure.",
+    },
+    {
+        question: "What exactly is Sleep Dentistry?",
+        answer: "Sleep Dentistry (conscious sedation) allows you to undergo dental procedures in a state of deep relaxation. While you aren't completely unconscious like general anesthesia, you will be in a dream-like state and typically have little to no memory of the treatment afterward.",
+    },
+    {
+        question: "Do you offer smile previews before starting treatment?",
+        answer: "Absolutely. We use AI-powered Digital Smile Design (DSD) to create a photorealistic simulation of your new smile. You can see, adjust, and approve your final look before we even touch a tooth.",
+    },
+    {
+        question: "Where in Lahore are you located?",
+        answer: "Comfy Dental is located on the 1st Floor, 81CCA, Sector C, DHA Phase 5, Lahore. We have dedicated parking and a premium, spa-like environment designed to reduce clinical anxiety.",
+    },
+    {
+        question: "Are there flexible payment options available?",
+        answer: "Yes, we believe premium care should be accessible. We offer transparent pricing and tailored 0% financing payment plans for major cosmetic and restorative procedures.",
+    },
+];
+---
+
+<section id="faq" class="py-24 bg-sand">
+    <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16">
+                <span
+                    class="text-mocha font-bold tracking-wider uppercase text-xs mb-3 block"
+                    >Common Inquiries</span
+                >
+                <h2 class="text-3xl md:text-5xl font-bold text-slate-800 mb-6">
+                    Frequently Asked Questions
+                </h2>
+                <p class="text-slate-600 text-lg font-medium">
+                    Clear answers for your peace of mind.
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                {
+                    faqs.map((faq, index) => (
+                        <div class="bg-soft-light rounded-3xl border border-white shadow-sm overflow-hidden transition-all hover:shadow-md">
+                            <details class="group">
+                                <summary class="flex items-center justify-between p-6 md:p-8 cursor-pointer list-none">
+                                    <h3 class="text-lg md:text-xl font-bold text-slate-800 pr-8">
+                                        {faq.question}
+                                    </h3>
+                                    <div class="w-8 h-8 rounded-full bg-sand flex items-center justify-center text-mocha group-open:rotate-180 transition-transform flex-shrink-0">
+                                        <svg
+                                            class="w-5 h-5"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M19 9l-7 7-7-7"
+                                            />
+                                        </svg>
+                                    </div>
+                                </summary>
+                                <div class="px-6 md:px-8 pb-8">
+                                    <p class="text-slate-600 leading-relaxed font-medium transition-opacity">
+                                        {faq.answer}
+                                    </p>
+                                </div>
+                            </details>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <!-- Structured Data (FAQ Schema) -->
+            <script
+                type="application/ld+json"
+                set:html={JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    mainEntity: faqs.map((f) => ({
+                        "@type": "Question",
+                        name: f.question,
+                        acceptedAnswer: {
+                            "@type": "Answer",
+                            text: f.answer,
+                        },
+                    })),
+                })}
+            />
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Custom styles if needed, but Tailwind handles most */
+    summary::-webkit-details-marker {
+        display: none;
+    }
+</style>

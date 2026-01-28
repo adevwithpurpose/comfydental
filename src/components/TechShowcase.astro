@@ -1,0 +1,125 @@
+---
+const techs = [
+    {
+        title: "Intraoral Scanners",
+        benefit: "No Messy Molds",
+        desc: "We use TRIOS digital scanners to create a 3D map of your mouth in seconds. Faster, more accurate, and completely gag-free.",
+        icon: "📸",
+    },
+    {
+        title: "Laser Dentistry",
+        benefit: "Drill-Free Precision",
+        desc: "Advanced lasers allow us to perform treatments with minimal bleeding and faster healing times, often without the need for traditional drills.",
+        icon: "⚡",
+    },
+    {
+        title: "AI Smile Design",
+        benefit: "Photorealistic Previews",
+        desc: "Using SmileCloud AI, we simulate your results before we ever touch a tooth. You are the architect of your own transformation.",
+        icon: "🧠",
+    },
+    {
+        title: "3D CBCT Imaging",
+        benefit: "Ultra-Low Radiation",
+        desc: "High-definition 3D imaging allows for pinpoint accuracy in implant placement and surgical planning, ensuring safe and predictable outcomes.",
+        icon: "📡",
+    },
+];
+---
+
+<section id="technology" class="py-24 bg-sand relative overflow-hidden">
+    <!-- Decorative element -->
+    <div
+        class="absolute top-0 right-0 w-1/3 h-full bg-sage/5 -skew-x-12 transform translate-x-1/2"
+    >
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center gap-16">
+            <div class="lg:w-1/2">
+                <span
+                    class="text-sage font-bold tracking-wider uppercase text-sm mb-3 block"
+                    >Modern Precision</span
+                >
+                <h2
+                    class="text-3xl md:text-5xl font-bold text-slate-800 mb-8 leading-tight"
+                >
+                    Technological Synergy for Your Comfort
+                </h2>
+                <p
+                    class="text-slate-600 text-lg mb-10 leading-relaxed font-medium"
+                >
+                    At Comfy Dental, technology isn't just about efficiency—it's
+                    about eliminating the friction from your dental visit. From
+                    "No-Gag Scans" to "Drill-Free" lasers, we invest in the
+                    world's most advanced tools to ensure your experience is as
+                    painless as possible.
+                </p>
+
+                <div class="space-y-6">
+                    {
+                        techs.slice(0, 2).map((t) => (
+                            <div class="flex items-start gap-6 bg-soft-light p-6 rounded-3xl border border-white shadow-sm">
+                                <div class="w-14 h-14 bg-sand rounded-2xl flex items-center justify-center text-2xl flex-shrink-0">
+                                    {t.icon}
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-slate-800 mb-1">
+                                        {t.title}
+                                    </h4>
+                                    <p class="text-sage font-bold text-xs uppercase tracking-widest mb-2">
+                                        {t.benefit}
+                                    </p>
+                                    <p class="text-slate-600 text-sm font-medium leading-relaxed">
+                                        {t.desc}
+                                    </p>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <div class="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {
+                    techs.slice(2).map((t) => (
+                        <div class="bg-soft-light p-8 rounded-4xl border border-white shadow-sm hover:shadow-xl transition-all group">
+                            <div class="w-16 h-16 bg-sand rounded-3xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                                {t.icon}
+                            </div>
+                            <h4 class="text-xl font-bold text-slate-800 mb-1">
+                                {t.title}
+                            </h4>
+                            <p class="text-sage font-bold text-xs uppercase tracking-widest mb-4">
+                                {t.benefit}
+                            </p>
+                            <p class="text-slate-600 text-sm font-medium leading-relaxed">
+                                {t.desc}
+                            </p>
+                        </div>
+                    ))
+                }
+
+                <!-- Call to action block -->
+                <div
+                    class="sm:col-span-2 bg-mocha p-8 rounded-4xl text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl"
+                >
+                    <div class="text-center sm:text-left">
+                        <p class="text-lg font-bold">
+                            Experience the Future of Care
+                        </p>
+                        <p class="text-white/70 text-sm font-medium">
+                            Book a high-tech consultation today.
+                        </p>
+                    </div>
+                    <a
+                        href="/contact"
+                        class="px-8 py-3 bg-soft-light text-mocha font-bold rounded-2xl hover:bg-sand transition-all shadow-lg whitespace-nowrap"
+                    >
+                        Inquire Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

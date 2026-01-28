@@ -1,0 +1,162 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const secrets = [
+    {
+        title: "No-Needle Numbing",
+        desc: "We use a pre-numbing gel and specialized technology that eliminates the 'pinch' of traditional injections.",
+        icon: "💉",
+    },
+    {
+        title: "Conscious Sedation",
+        desc: "Feel completely relaxed and 'dreamy' throughout your visit. You'll remain awake but won't feel a thing.",
+        icon: "🌙",
+    },
+    {
+        title: "Distraction Luxe",
+        desc: "Watch your favorite Netflix show with noise-cancelling headphones while we work on your smile.",
+        icon: "🎧",
+    },
+];
+---
+
+<Layout title="Anxiety-Free Transformation Guide - Comfy Dental">
+    <!-- Hero Section -->
+    <section class="bg-mocha py-24 text-white relative overflow-hidden">
+        <div
+            class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -mr-32 -mt-32"
+        >
+        </div>
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <span
+                class="inline-block px-4 py-1 bg-white/10 rounded-full text-xs font-bold uppercase tracking-widest mb-6"
+                >Free Digital Guide</span
+            >
+            <h1 class="text-4xl md:text-7xl font-bold mb-8">
+                The Anxiety-Free <span class="text-primary-light"
+                    >Transformation</span>
+            </h1>
+            <p
+                class="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed"
+            >
+                How we turn your dental fear into a relaxing, premium self-care
+                experience.
+            </p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-20 bg-sand">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div
+                class="bg-white rounded-[3rem] p-10 md:p-20 shadow-2xl shadow-mocha/10 -mt-32 relative z-20"
+            >
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold text-slate-800 mb-6">
+                        A Message from Dr. Anam
+                    </h2>
+                    <p
+                        class="text-slate-600 text-lg leading-relaxed mb-6 italic"
+                    >
+                        "I know why you've been waiting. Most dental offices
+                        feel cold, clinical, and intimidating. At Comfy Dental,
+                        we’ve removed the 'medical' feel and replaced it with
+                        comfort, empathy, and advanced technology that actually
+                        works."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-1 h-px bg-mocha/20"></div>
+                        <p class="font-bold text-mocha">
+                            Dr. Anam - Lead Clinician
+                        </p>
+                    </div>
+                </div>
+
+                <div class="space-y-16">
+                    <div>
+                        <h3
+                            class="text-2xl font-bold text-slate-800 mb-10 text-center"
+                        >
+                            Our 3 Pillars of Comfort
+                        </h3>
+                        <div class="grid grid-cols-1 gap-8">
+                            {
+                                secrets.map((secret) => (
+                                    <div class="flex flex-col md:flex-row gap-8 items-center bg-slate-50 p-8 rounded-4xl border border-slate-100 group hover:bg-white hover:shadow-xl transition-all">
+                                        <div class="w-20 h-20 bg-white rounded-3xl shadow-sm flex items-center justify-center text-4xl shrink-0 group-hover:scale-110 transition-transform">
+                                            {secret.icon}
+                                        </div>
+                                        <div>
+                                            <h4 class="text-xl font-bold text-slate-800 mb-2">
+                                                {secret.title}
+                                            </h4>
+                                            <p class="text-slate-600 font-medium">
+                                                {secret.desc}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-mocha/5 p-8 md:p-12 rounded-[2.5rem] border border-mocha/10"
+                    >
+                        <h3 class="text-2xl font-bold text-slate-800 mb-6">
+                            What to expect on your first visit?
+                        </h3>
+                        <ul class="space-y-4 text-slate-600 font-medium">
+                            <li class="flex items-center gap-4">
+                                <span
+                                    class="w-6 h-6 rounded-full bg-mocha text-white flex items-center justify-center text-[10px] font-bold"
+                                    >1</span
+                                >
+                                No judgement. We only look forward to your new smile.
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <span
+                                    class="w-6 h-6 rounded-full bg-mocha text-white flex items-center justify-center text-[10px] font-bold"
+                                    >2</span
+                                >
+                                A zero-pressure consultation to discuss your goals.
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <span
+                                    class="w-6 h-6 rounded-full bg-mocha text-white flex items-center justify-center text-[10px] font-bold"
+                                    >3</span
+                                >
+                                A personalized "Comfort Plan" before any work begins.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-20 text-center">
+                    <h2 class="text-3xl font-bold text-slate-800 mb-8">
+                        Ready to take the first step?
+                    </h2>
+                    <p class="text-slate-600 mb-10 max-w-md mx-auto">
+                        Book a Virtual Assessment or an in-clinic visit. We
+                        promise it will be the most relaxed you've ever felt in
+                        a dental chair.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="/contact"
+                            class="px-10 py-5 bg-mocha text-white font-bold rounded-2xl shadow-xl hover:bg-slate-800 transition-all"
+                        >
+                            Book Free Consultation
+                        </a>
+                        <a
+                            href="/patient-hub"
+                            class="px-10 py-5 bg-white text-mocha border-2 border-mocha/10 font-bold rounded-2xl hover:bg-sand transition-all"
+                        >
+                            Explore Patient Hub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>

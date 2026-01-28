@@ -1,0 +1,205 @@
+---
+const testimonials = [
+    {
+        name: "Sana Ahmed",
+        review: "I was terrified of dentists, but Dr. Anam changed my life. The veneer process was completely painless, and I can't stop smiling now!",
+        treatment: "Smile Makeover",
+    },
+    {
+        name: "Bilal Khan",
+        review: "Best dental experience in Lahore. The clinic is so clean and 'comfy' as the name suggests. Highly recommended for implants.",
+        treatment: "Dental Implants",
+    },
+    {
+        name: "Ayesha Malik",
+        review: "My kids actually love coming here! Dr. Anam is so gentle. Finally found a family dentist we trust.",
+        treatment: "Kids Dentistry",
+    },
+];
+
+const videoTestimonials = [
+    {
+        src: "/review.mp4",
+        title: "Sarah's Story",
+        desc: "Complete smile restoration",
+    },
+    {
+        src: "/smile-review.mp4",
+        title: "A Heartfelt Review",
+        desc: "The Comfy Experience",
+    },
+    {
+        src: "/national-hero-visit.mp4#t=2",
+        title: "Special Guest",
+        desc: "Routine Care & Whitening",
+    },
+];
+---
+
+<section class="py-24 bg-sand">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <span
+                class="text-mocha font-bold tracking-wider uppercase text-xs mb-3 block"
+                >Kind Words</span
+            >
+            <h2 class="text-3xl md:text-5xl font-bold text-slate-800 mb-6">
+                Patient Stories
+            </h2>
+            <p
+                class="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed font-medium"
+            >
+                Experience the impact of anxiety-free dentistry through the eyes
+                of our community.
+            </p>
+        </div>
+
+        <!-- Video Testimonials Grid -->
+        <div
+            class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-24"
+        >
+            {
+                videoTestimonials.map((vid) => (
+                    <div class="group flex flex-col items-center">
+                        <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-slate-900 aspect-[9/16] w-full max-w-[280px] transform group-hover:scale-[1.02] transition-transform duration-500">
+                            <video
+                                controls
+                                class="w-full h-full object-cover"
+                                preload="metadata"
+                            >
+                                <source src={vid.src} type="video/mp4" />
+                            </video>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none flex flex-col justify-end p-8">
+                                <h4 class="text-white font-bold text-lg">
+                                    {vid.title}
+                                </h4>
+                                <p class="text-white/80 text-sm">{vid.desc}</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-center md:hidden">
+                            <h4 class="text-slate-800 font-bold">
+                                {vid.title}
+                            </h4>
+                            <p class="text-slate-500 text-sm">{vid.desc}</p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+
+        <!-- Google Reviews Summary & CTA -->
+        <div class="max-w-5xl mx-auto mb-20">
+            <div
+                class="bg-soft-light rounded-[3rem] shadow-xl p-8 md:p-16 border border-white flex flex-col lg:flex-row items-center gap-12"
+            >
+                <div class="flex-1 w-full">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-px bg-mocha/30"></div>
+                        <h3
+                            class="text-xl font-bold text-slate-800 uppercase tracking-widest text-sm"
+                        >
+                            Verified Google Reviews
+                        </h3>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-12 items-center">
+                        <!-- Rating Bar Chart -->
+                        <div class="space-y-4">
+                            {
+                                [
+                                    { stars: 5, percentage: 94 },
+                                    { stars: 4, percentage: 6 },
+                                    { stars: 3, percentage: 0 },
+                                    { stars: 2, percentage: 0 },
+                                    { stars: 1, percentage: 0 },
+                                ].map((rating) => (
+                                    <div class="flex items-center gap-4">
+                                        <span class="text-slate-500 font-bold text-xs w-4">
+                                            {rating.stars}★
+                                        </span>
+                                        <div class="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
+                                            <div
+                                                class="h-full bg-yellow-400 rounded-full"
+                                                style={`width: ${rating.percentage}%`}
+                                            />
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+
+                        <!-- Big Number -->
+                        <div
+                            class="text-center lg:border-l border-slate-100 lg:pl-12"
+                        >
+                            <div
+                                class="text-6xl font-black text-slate-800 mb-2"
+                            >
+                                5.0
+                            </div>
+                            <div class="flex justify-center gap-1 mb-3">
+                                {
+                                    [1, 2, 3, 4, 5].map(() => (
+                                        <span class="text-yellow-400 text-2xl">
+                                            ★
+                                        </span>
+                                    ))
+                                }
+                            </div>
+                            <p
+                                class="text-slate-500 font-bold uppercase tracking-widest text-[10px]"
+                            >
+                                Based on 35+ Happy Patients
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-4 w-full lg:w-auto">
+                    <a
+                        href="https://www.google.com/search?q=Comfy+Dental+DHA+Lahore+Reviews"
+                        target="_blank"
+                        class="px-10 py-5 bg-mocha text-white font-bold rounded-2xl hover:bg-slate-800 transition-all shadow-xl text-center whitespace-nowrap"
+                    >
+                        Read All Reviews
+                    </a>
+                    <a
+                        href="/gallery"
+                        class="px-10 py-5 bg-white text-mocha font-bold rounded-2xl border border-mocha/10 hover:bg-sand transition-all text-center whitespace-nowrap"
+                    >
+                        View Full Gallery
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quote Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {
+                testimonials.map((t) => (
+                    <div class="bg-soft-light p-10 rounded-[2.5rem] shadow-lg relative border border-white group hover:-translate-y-2 transition-transform duration-500">
+                        <div class="text-4xl text-mocha/20 font-serif mb-6 group-hover:text-mocha/40 transition-colors">
+                            “
+                        </div>
+                        <p class="text-slate-600 mb-8 italic leading-relaxed font-medium">
+                            {t.review}
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-sand flex items-center justify-center text-mocha font-bold shadow-inner">
+                                {t.name.charAt(0)}
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">
+                                    {t.name}
+                                </h4>
+                                <span class="text-[10px] font-black text-mocha uppercase tracking-widest">
+                                    {t.treatment}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

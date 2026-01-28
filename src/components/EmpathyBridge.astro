@@ -1,0 +1,92 @@
+---
+const pillars = [
+    {
+        title: "Fear of Pain?",
+        desc: "We utilize advanced IV and conscious sedation options to ensure you feel absolutely nothing during your transformation.",
+        icon: "🌙",
+        color: "bg-sage/10 text-sage",
+    },
+    {
+        title: "Fear of Results?",
+        desc: "See your future smile before we start. Our AI-powered digital smile design previews give you 100% confidence.",
+        icon: "✨",
+        color: "bg-mocha/10 text-mocha",
+    },
+    {
+        title: "Fear of Cost?",
+        desc: "Premium care should be accessible. We offer transparent 0% financing and tailored monthly payment plans.",
+        icon: "💎",
+        color: "bg-champagne/20 text-slate-700",
+    },
+];
+---
+
+<section
+    id="empathy-bridge"
+    class="py-24 bg-soft-light transition-colors duration-1000"
+>
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold text-slate-800 mb-6">
+                We Understand Why You've Been Waiting
+            </h2>
+            <p
+                class="text-slate-600 text-lg md:text-xl leading-relaxed font-medium"
+            >
+                Dental anxiety is real, and it’s often standing between you and
+                the smile you deserve. We’ve redesigned the entire experience to
+                bridge that gap with empathy and expertise.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {
+                pillars.map((pillar) => (
+                    <div class="p-10 rounded-4xl bg-sand border border-white hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 group">
+                        <div
+                            class={`w-16 h-16 ${pillar.color} rounded-2xl flex items-center justify-center text-3xl mb-8 transform group-hover:rotate-6 transition-transform`}
+                        >
+                            {pillar.icon}
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-800 mb-4">
+                            {pillar.title}
+                        </h3>
+                        <p class="text-slate-600 leading-relaxed font-medium">
+                            {pillar.desc}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+
+        <div
+            class="mt-20 p-8 md:p-12 rounded-4xl bg-mocha text-white relative overflow-hidden group"
+        >
+            <div
+                class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8"
+            >
+                <div class="max-w-xl">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4">
+                        Ready to start your journey?
+                    </h3>
+                    <p class="text-white/80 text-lg font-medium">
+                        Download our free "Anxiety-Free Transformation Guide"
+                        and learn how we make the impossible, comfortable.
+                    </p>
+                </div>
+                <a
+                    href="/guides/anxiety-free"
+                    class="px-8 py-4 bg-white text-mocha font-bold rounded-2xl hover:bg-sand transition-all transform hover:scale-105 shadow-xl"
+                >
+                    Download Guide
+                </a>
+            </div>
+            <!-- Decorative background text -->
+            <div
+                class="absolute -right-10 -bottom-10 text-9xl font-black text-white/5 select-none pointer-events-none transform -rotate-12 group-hover:rotate-0 transition-transform duration-700"
+            >
+                COMFY
+            </div>
+        </div>
+    </div>
+</section>

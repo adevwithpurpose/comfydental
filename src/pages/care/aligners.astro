@@ -1,0 +1,143 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const wearingRules = [
+    { title: "22 Hours/Day", desc: "Only remove to eat or brush." },
+    { title: "Cold Water Only", desc: "Hot water will warp the plastic." },
+    { title: "Store in Case", desc: "Never wrap in a napkin." },
+    {
+        title: "Brush teeth first",
+        desc: "Don't trap food against your enamel.",
+    },
+];
+---
+
+<Layout title="Aligner Maintenance - Comfy Dental">
+    <section class="bg-sand py-20">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="mb-12">
+                <a
+                    href="/patient-hub"
+                    class="inline-flex items-center gap-2 text-primary font-bold mb-8 hover:-translate-x-1 transition-transform"
+                >
+                    <svg
+                        class="w-5 h-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        ><path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 19l-7-7 7-7"></path></svg
+                    >
+                    Back to Hub
+                </a>
+                <h1 class="text-4xl md:text-6xl font-bold text-slate-800 mb-6">
+                    Aligner <span class="text-primary">Maintenance</span>
+                </h1>
+                <p class="text-xl text-slate-600 leading-relaxed max-w-2xl">
+                    Invisible braces require visible discipline. Keep your
+                    aligners clear and your treatment on track with these simple
+                    rules.
+                </p>
+            </div>
+
+            <!-- The Rule Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-20">
+                {
+                    wearingRules.map((rule) => (
+                        <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50 group hover:bg-primary transition-all duration-500">
+                            <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-white transition-colors">
+                                {rule.title}
+                            </h3>
+                            <p class="text-slate-500 group-hover:text-white/80 transition-colors">
+                                {rule.desc}
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <!-- Cleaning Guide -->
+            <div
+                class="bg-white rounded-[3rem] p-8 md:p-12 border border-slate-100 shadow-2xl mb-20"
+            >
+                <h2 class="text-3xl font-bold text-slate-800 mb-8">
+                    How to Clean Your Aligners
+                </h2>
+                <div class="space-y-8">
+                    <div class="flex gap-6">
+                        <div
+                            class="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center text-xl shrink-0"
+                        >
+                            🪥
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 mb-1">
+                                Morning & Night
+                            </h4>
+                            <p class="text-slate-600">
+                                Gently brush the inside and outside of the
+                                aligners with a soft toothbrush and non-abrasive
+                                toothpaste or mild soap.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div
+                            class="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center text-xl shrink-0"
+                        >
+                            🫧
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 mb-1">
+                                Weekly Deep Clean
+                            </h4>
+                            <p class="text-slate-600">
+                                Soak them in specialized aligner cleaning
+                                crystals or a denture cleaner once a week for 15
+                                minutes to prevent odor.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div
+                            class="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center text-xl shrink-0"
+                        >
+                            💧
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 mb-1">
+                                Rinse Every Time
+                            </h4>
+                            <p class="text-slate-600">
+                                Whenever you take them out, rinse away saliva
+                                immediately to prevent plaque from hardening on
+                                the plastic.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pro Tip Box -->
+            <div
+                class="bg-mocha rounded-3xl p-8 text-white flex flex-col md:flex-row items-center gap-8 shadow-xl shadow-mocha/20"
+            >
+                <div class="text-5xl">💡</div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">
+                        Pro Tip: The Next Tray Ritual
+                    </h3>
+                    <p class="opacity-90">
+                        Switch to your new set of trays right <span
+                            class="font-bold underline">before bed</span
+                        >. This allows the initial pressure to happen while you
+                        sleep, making the transition more comfortable.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>

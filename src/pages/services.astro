@@ -1,0 +1,156 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ServiceGrid from "../components/ServiceGrid.astro"; // Converting grid to list for detail view
+
+const allServices = [
+    {
+        title: "Smile Makeovers & Veneers",
+        desc: "A completely customized smile design using ultra-thin porcelain veneers.",
+        details:
+            "We analyze your facial features to design a smile that fits you perfectly. Our pain-free preparation ensures your natural teeth are preserved while giving you the Hollywood smile you've always wanted.",
+    },
+    {
+        title: "Dental Implants",
+        desc: "The gold standard for replacing missing teeth.",
+        details:
+            "Implants provide a permanent solution that looks, feels, and functions like natural teeth. We use 3D guided surgery for precision and faster healing.",
+    },
+    {
+        title: "Clear Aligners & Braces",
+        desc: "Straighten your teeth without the hassle.",
+        details:
+            "Choose between invisible clear aligners or traditional braces. We customize the plan to fit your lifestyle and timeline.",
+    },
+    {
+        title: "Root Canal Therapy",
+        desc: "Save your tooth with our pain-free rotary endodontics.",
+        details:
+            "Forget the horror stories. Our modern root canal procedures are efficient, comfortable, and designed to save your natural tooth from extraction.",
+    },
+    {
+        title: "Teeth Whitening",
+        desc: "Instant brightness for special occasions.",
+        details:
+            "We offer both in-office power whitening (1 hour) and take-home kits. Safe, effective, and results that wow.",
+    },
+    {
+        title: "Bridges & Crowns",
+        desc: "Restore damaged or missing teeth.",
+        details:
+            "High-strength Zirconia crowns that look completely natural. No more metal lines or artificial-looking teeth.",
+    },
+];
+---
+
+<Layout title="Treatments & Services - Comfy Dental">
+    <section class="bg-surface-gray py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-slate-800 mb-6">
+                Our Treatments
+            </h1>
+            <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+                Comprehensive, premium dental care under one roof. We prioritize
+                your comfort in every procedure.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="space-y-12">
+                {
+                    allServices.map((item, index) => (
+                        <div
+                            id={item.title
+                                .toLowerCase()
+                                .replace(/[^a-z0-9]+/g, "-")}
+                            class="flex flex-col md:flex-row gap-8 items-start border-b border-slate-100 pb-12 last:border-0 scroll-mt-32"
+                        >
+                            <div class="md:w-1/3">
+                                <span class="text-6xl font-bold text-slate-100 block mb-2">
+                                    {(index + 1).toString().padStart(2, "0")}
+                                </span>
+                                <h2 class="text-2xl font-bold text-slate-800">
+                                    {item.title}
+                                </h2>
+                            </div>
+                            <div class="md:w-2/3">
+                                <p class="text-lg text-slate-700 font-medium mb-3">
+                                    {item.desc}
+                                </p>
+                                <p class="text-slate-600 leading-relaxed">
+                                    {item.details}
+                                </p>
+                                <div class="flex flex-wrap gap-4 mt-6">
+                                    <a
+                                        href="/contact"
+                                        class="inline-flex items-center gap-2 text-primary font-bold hover:underline"
+                                    >
+                                        Book Assessment
+                                        <svg
+                                            class="w-4 h-4"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                            />
+                                        </svg>
+                                    </a>
+                                    {item.title
+                                        .toLowerCase()
+                                        .includes("veneers") && (
+                                        <a
+                                            href="/care/veneers"
+                                            class="text-slate-400 text-sm font-medium hover:text-mocha"
+                                        >
+                                            View Care Guide
+                                        </a>
+                                    )}
+                                    {item.title
+                                        .toLowerCase()
+                                        .includes("root") && (
+                                        <a
+                                            href="/care/root-canal"
+                                            class="text-slate-400 text-sm font-medium hover:text-mocha"
+                                        >
+                                            View Care Guide
+                                        </a>
+                                    )}
+                                    {item.title
+                                        .toLowerCase()
+                                        .includes("aligners") && (
+                                        <a
+                                            href="/care/aligners"
+                                            class="text-slate-400 text-sm font-medium hover:text-mocha"
+                                        >
+                                            View Care Guide
+                                        </a>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-primary py-16 text-center text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-6">Unsure what you need?</h2>
+            <p class="text-xl mb-8 opacity-90">
+                Book a consultation and let Dr. Anam guide you.
+            </p>
+            <a
+                href="/contact"
+                class="inline-block px-8 py-3 bg-white text-primary font-bold rounded-2xl hover:bg-slate-50 transition-colors shadow-lg"
+                >Schedule Consultation</a
+            >
+        </div>
+    </section>
+</Layout>

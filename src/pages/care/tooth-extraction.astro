@@ -1,0 +1,206 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const checklist = [
+    { text: "Bite on gauze for 30-45 mins", type: "do" },
+    { text: "Apply ice pack for 15 min intervals", type: "do" },
+    { text: "Eat soft, cold foods (Yogurt/Ice Cream)", type: "do" },
+    { text: "Rinse with salt water (after 24h)", type: "do" },
+    { text: "Don't use a straw for 7 days", type: "dont" },
+    { text: "Don't smoke or use tobacco", type: "dont" },
+    { text: "Avoid spitting or vigorous rinsing", type: "dont" },
+    { text: "No strenuous exercise for 48h", type: "dont" },
+];
+---
+
+<Layout title="Post-Extraction Care - Comfy Dental">
+    <section class="bg-sand py-20">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="mb-12">
+                <a
+                    href="/patient-hub"
+                    class="inline-flex items-center gap-2 text-primary font-bold mb-8 hover:-translate-x-1 transition-transform"
+                >
+                    <svg
+                        class="w-5 h-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        ><path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 19l-7-7 7-7"></path></svg
+                    >
+                    Back to Hub
+                </a>
+                <h1 class="text-4xl md:text-6xl font-bold text-slate-800 mb-6">
+                    Tooth Extraction <span class="text-mocha">Post-Care</span>
+                </h1>
+                <p class="text-xl text-slate-600 leading-relaxed">
+                    Proper healing starts now. Following these instructions will
+                    prevent complications like "Dry Socket" and ensure a fast,
+                    painless recovery.
+                </p>
+            </div>
+
+            <!-- Quick Checklist -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <div
+                    class="bg-white p-8 rounded-[2.5rem] shadow-xl shadow-slate-200/50 border border-slate-100"
+                >
+                    <h3
+                        class="text-2xl font-bold text-green-600 mb-6 flex items-center gap-2"
+                    >
+                        <span
+                            class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-sm"
+                            >✓</span
+                        >
+                        Immediate Dos
+                    </h3>
+                    <ul class="space-y-4">
+                        {
+                            checklist
+                                .filter((i) => i.type === "do")
+                                .map((item) => (
+                                    <li class="flex items-start gap-3 text-slate-700 font-medium">
+                                        <span class="text-green-500 mt-1">
+                                            •
+                                        </span>
+                                        {item.text}
+                                    </li>
+                                ))
+                        }
+                    </ul>
+                </div>
+                <div
+                    class="bg-white p-8 rounded-[2.5rem] shadow-xl shadow-slate-200/50 border border-slate-100"
+                >
+                    <h3
+                        class="text-2xl font-bold text-red-600 mb-6 flex items-center gap-2"
+                    >
+                        <span
+                            class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center text-sm"
+                            >✕</span
+                        >
+                        Crucial Don'ts
+                    </h3>
+                    <ul class="space-y-4">
+                        {
+                            checklist
+                                .filter((i) => i.type === "dont")
+                                .map((item) => (
+                                    <li class="flex items-start gap-3 text-slate-700 font-medium">
+                                        <span class="text-red-500 mt-1">•</span>
+                                        {item.text}
+                                    </li>
+                                ))
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Detailed Timeline -->
+            <div class="space-y-12 mb-20">
+                <div class="relative pl-12 border-l-2 border-slate-200">
+                    <div
+                        class="absolute -left-[11px] top-0 w-5 h-5 bg-primary rounded-full ring-4 ring-sand"
+                    >
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-800 mb-3">
+                        Day 1: Protection
+                    </h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Keep the blood clot in place. Do not disturb the socket.
+                        Rest with your head elevated. If bleeding is heavy, bite
+                        on a damp tea bag for 30 minutes.
+                    </p>
+                </div>
+                <div
+                    class="relative pl-12 border-l-2 border-slate-200 text-slate-500"
+                >
+                    <div
+                        class="absolute -left-[11px] top-0 w-5 h-5 bg-slate-300 rounded-full ring-4 ring-sand"
+                    >
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-800 mb-3">
+                        Day 2-3: Recovery & Diet
+                    </h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Swelling usually peaks today. Use ice and begin gentle
+                        warm salt water rinses (1 tsp salt in warm water) after
+                        every meal. Stick to soft foods like mashed potatoes,
+                        soups, and shakes.
+                    </p>
+                </div>
+                <div
+                    class="relative pl-12 border-l-2 border-slate-200 text-slate-500"
+                >
+                    <div
+                        class="absolute -left-[11px] top-0 w-5 h-5 bg-slate-200 rounded-full ring-4 ring-sand"
+                    >
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-800 mb-3">
+                        Day 7+: Normalcy
+                    </h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Pain should be almost gone. You can return to normal
+                        diet as comfort allows, but avoid chewing directly on
+                        the site.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Red Alert Section -->
+            <div
+                class="bg-red-900 rounded-[3rem] p-8 md:p-12 text-white relative overflow-hidden"
+            >
+                <div
+                    class="absolute top-0 right-0 w-64 h-64 bg-red-800 rounded-full -mr-32 -mt-32 opacity-20 blur-3xl"
+                >
+                </div>
+                <div class="relative z-10">
+                    <h3
+                        class="text-2xl md:text-3xl font-bold mb-6 flex items-center gap-3"
+                    >
+                        🚨 When to call Dr. Anam?
+                    </h3>
+                    <div
+                        class="grid grid-cols-1 sm:grid-cols-2 gap-6 opacity-90"
+                    >
+                        <div
+                            class="flex items-center gap-3 bg-white/10 p-4 rounded-2xl"
+                        >
+                            <span class="text-2xl">🤒</span>
+                            <span>High fever or chills</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 bg-white/10 p-4 rounded-2xl"
+                        >
+                            <span class="text-2xl">💉</span>
+                            <span>Bleeding that won't stop</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 bg-white/10 p-4 rounded-2xl"
+                        >
+                            <span class="text-2xl">⚡</span>
+                            <span>Severe thumping pain (Dry Socket)</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 bg-white/10 p-4 rounded-2xl"
+                        >
+                            <span class="text-2xl">🐡</span>
+                            <span>Swelling that gets worse after Day 3</span>
+                        </div>
+                    </div>
+                    <a
+                        href="tel:+923401555530"
+                        class="inline-block mt-8 px-8 py-4 bg-white text-red-900 font-bold rounded-2xl hover:bg-slate-50 transition-colors"
+                    >
+                        Call Clinic Immediately
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>

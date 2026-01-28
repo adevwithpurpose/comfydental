@@ -1,0 +1,12 @@
+
+> comfydental@0.0.1 build
+> cross-env TINA_PUBLIC_IS_LOCAL=true tinacms build && astro build
+
+Starting Tina build
+Error: Client not configured properly. Missing clientId, token. Please visit https://tina.io/docs/r/what-is-tinacloud for more information
+    at Codegen._createApiUrl (file:///D:/antigravity/comfydental/node_modules/@tinacms/cli/dist/index.js:599:13)
+    at Codegen.execute (file:///D:/antigravity/comfydental/node_modules/@tinacms/cli/dist/index.js:505:53)
+    at async BuildCommand.execute (file:///D:/antigravity/comfydental/node_modules/@tinacms/cli/dist/index.js:3037:20)
+    at async BuildCommand.validateAndExecute (D:\antigravity\comfydental\node_modules\clipanion\lib\advanced\Command.js:73:26)
+    at async Cli.run (D:\antigravity\comfydental\node_modules\clipanion\lib\advanced\Cli.js:223:24)
+    at async Cli.runExit (D:\antigravity\comfydental\node_modules\clipanion\lib\advanced\Cli.js:232:28)

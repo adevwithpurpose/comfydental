@@ -1,0 +1,140 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const timeline = [
+    { time: "Hour 1-3", action: "Avoid eating until numbness is 100% gone." },
+    {
+        time: "Day 1-3",
+        action: "Mild sensitivity is normal. Use Ibuprofen as directed.",
+    },
+    {
+        time: "Week 1-4",
+        action: "Return for your permanent Crown (VERY IMPORTANT).",
+    },
+];
+---
+
+<Layout title="Root Canal Recovery - Comfy Dental">
+    <section class="bg-sand py-20">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="mb-12">
+                <a
+                    href="/patient-hub"
+                    class="inline-flex items-center gap-2 text-primary font-bold mb-8 hover:-translate-x-1 transition-transform"
+                >
+                    <svg
+                        class="w-5 h-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        ><path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 19l-7-7 7-7"></path></svg
+                    >
+                    Back to Hub
+                </a>
+                <h1 class="text-4xl md:text-6xl font-bold text-slate-800 mb-6">
+                    Root Canal <span class="text-mocha">Recovery</span>
+                </h1>
+                <p class="text-xl text-slate-600 leading-relaxed max-w-2xl">
+                    The hard part is over! Now, let's ensure your tooth stays
+                    protected and pain-free during the final healing stage.
+                </p>
+            </div>
+
+            <!-- The Critical Warning -->
+            <div
+                class="bg-red-50 border-l-8 border-red-500 p-8 rounded-3xl mb-16 shadow-lg shadow-red-500/5"
+            >
+                <h3
+                    class="text-xl font-bold text-red-800 mb-2 flex items-center gap-2"
+                >
+                    ⚠️ The #1 Rule for Success
+                </h3>
+                <p class="text-red-700 font-medium">
+                    Do not chew or bite on the treated tooth until your
+                    permanent crown is placed. The temporary filling is fragile
+                    and the tooth can fracture if too much pressure is applied.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                {
+                    timeline.map((item) => (
+                        <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50">
+                            <p class="text-primary font-black uppercase text-xs tracking-widest mb-3">
+                                {item.time}
+                            </p>
+                            <p class="text-slate-700 font-medium leading-relaxed">
+                                {item.action}
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <!-- FAQ Section specific to RCT -->
+            <div class="space-y-6 mb-20">
+                <h2 class="text-3xl font-bold text-slate-800 mb-8">
+                    Common Questions
+                </h2>
+                <div
+                    class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm"
+                >
+                    <h4 class="font-bold text-slate-800 mb-2">
+                        Can I brush the tooth?
+                    </h4>
+                    <p class="text-slate-600">
+                        Yes, keep the area clean. Brush and floss gently like
+                        any other tooth, but be careful not to "pop" out the
+                        temporary filling with floss.
+                    </p>
+                </div>
+                <div
+                    class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm"
+                >
+                    <h4 class="font-bold text-slate-800 mb-2">
+                        My jaw feels sore. Is that normal?
+                    </h4>
+                    <p class="text-slate-600">
+                        Yes. Soreness in the jaw muscles is normal from keeping
+                        your mouth open during the procedure. This will subside
+                        in 2-3 days.
+                    </p>
+                </div>
+                <div
+                    class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm"
+                >
+                    <h4 class="font-bold text-slate-800 mb-2">
+                        What if the filling falls out?
+                    </h4>
+                    <p class="text-slate-600">
+                        Temporary fillings are meant to be removed later. If it
+                        chips a little, it's fine. If the whole thing falls out,
+                        call us to have it replaced to prevent infection.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div
+                class="bg-slate-900 rounded-[3rem] p-12 text-center text-white"
+            >
+                <h3 class="text-2xl font-bold mb-4">
+                    Ready for your Permanent Crown?
+                </h3>
+                <p class="text-slate-400 mb-8">
+                    A root canal is not truly finished until the crown is
+                    placed. Book your final appointment now.
+                </p>
+                <a
+                    href="/contact"
+                    class="inline-block px-10 py-4 bg-primary text-white font-bold rounded-2xl shadow-lg hover:scale-105 transition-transform"
+                    >Book Restoration</a
+                >
+            </div>
+        </div>
+    </section>
+</Layout>

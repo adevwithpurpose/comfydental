@@ -1,0 +1,231 @@
+---
+
+---
+
+<div
+    class="bg-white p-8 md:p-12 rounded-4xl shadow-2xl relative overflow-hidden h-full border border-slate-100 transition-all hover:shadow-slate-200/50"
+>
+    <div
+        class="absolute top-0 left-0 w-full h-3 bg-gradient-to-r from-mocha via-primary to-sage"
+    >
+    </div>
+
+    <div class="mb-10">
+        <h3 class="text-3xl font-bold text-slate-800 mb-3">
+            Begin Your Transformation
+        </h3>
+        <p class="text-slate-600 font-medium">
+            Our Care Coordinator will reach out within 60 seconds during
+            business hours.
+        </p>
+    </div>
+
+    <form class="space-y-6" enctype="multipart/form-data">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <label
+                    for="name"
+                    class="block text-sm font-bold text-slate-700 mb-2"
+                    >Full Name</label
+                >
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="e.g. Sarah Ahmed"
+                    class="w-full px-6 py-4 rounded-2xl bg-sand border border-slate-100 focus:outline-none focus:ring-2 focus:ring-mocha/20 text-slate-800 transition-all focus:bg-white placeholder:text-slate-400 font-medium"
+                    required
+                />
+            </div>
+            <div>
+                <label
+                    for="phone"
+                    class="block text-sm font-bold text-slate-700 mb-2"
+                    >WhatsApp / Phone</label
+                >
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="03xx xxxxxxx"
+                    class="w-full px-6 py-4 rounded-2xl bg-sand border border-slate-100 focus:outline-none focus:ring-2 focus:ring-mocha/20 text-slate-800 transition-all focus:bg-white placeholder:text-slate-400 font-medium"
+                    required
+                />
+            </div>
+        </div>
+
+        <div>
+            <label
+                for="goal"
+                class="block text-sm font-bold text-slate-700 mb-2"
+                >What is your primary goal for your smile?</label
+            >
+            <div class="relative">
+                <select
+                    id="goal"
+                    name="goal"
+                    class="w-full px-6 py-4 rounded-2xl bg-sand border border-slate-100 focus:outline-none focus:ring-2 focus:ring-mocha/20 text-slate-800 transition-all focus:bg-white appearance-none cursor-pointer font-medium"
+                >
+                    <option value="" disabled selected
+                        >Select your goal...</option
+                    >
+                    <option value="whiter">Whiter, Brighter Teeth</option>
+                    <option value="straight">Straightening / Alignment</option>
+                    <option value="repair">Repairing Chips or Gaps</option>
+                    <option value="replace">Replacing Missing Teeth</option>
+                    <option value="pain">Immediate Pain Relief</option>
+                </select>
+                <div
+                    class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400"
+                >
+                    <svg
+                        class="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        ><path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 9l-7 7-7-7"></path></svg
+                    >
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <label
+                for="concern"
+                class="block text-sm font-bold text-slate-700 mb-2"
+                >What is your biggest concern about the dentist?</label
+            >
+            <div class="relative">
+                <select
+                    id="concern"
+                    name="concern"
+                    class="w-full px-6 py-4 rounded-2xl bg-sand border border-slate-100 focus:outline-none focus:ring-2 focus:ring-mocha/20 text-slate-800 transition-all focus:bg-white appearance-none cursor-pointer font-medium"
+                >
+                    <option value="none">I'm comfortable, just booking.</option>
+                    <option value="pain">Fear of Pain / Needles</option>
+                    <option value="cost">Investment / Financing</option>
+                    <option value="results">Fear of Unnatural Results</option>
+                    <option value="time">Time / Multiple Visits</option>
+                </select>
+                <div
+                    class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400"
+                >
+                    <svg
+                        class="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        ><path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 9l-7 7-7-7"></path></svg
+                    >
+                </div>
+            </div>
+        </div>
+
+        <!-- Real Photo Upload -->
+        <div>
+            <input
+                type="file"
+                id="photo-upload"
+                name="photo"
+                accept="image/*"
+                class="hidden"
+            />
+            <label
+                for="photo-upload"
+                class="p-6 border-2 border-dashed border-slate-200 rounded-3xl bg-slate-50 hover:bg-white transition-colors cursor-pointer group block"
+            >
+                <div
+                    class="flex flex-col items-center text-center"
+                    id="upload-feedback"
+                >
+                    <div
+                        class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform shadow-slate-200/50"
+                    >
+                        📸
+                    </div>
+                    <p
+                        class="text-slate-800 font-bold text-sm mb-1"
+                        id="upload-text"
+                    >
+                        Upload a photo for a Virtual Assessment
+                    </p>
+                    <p
+                        class="text-slate-500 text-xs font-medium"
+                        id="upload-status"
+                    >
+                        Optional. Secure and confidential.
+                    </p>
+                </div>
+            </label>
+        </div>
+
+        <script>
+            const fileInput = document.getElementById(
+                "photo-upload",
+            ) as HTMLInputElement;
+            const uploadText = document.getElementById("upload-text");
+            const uploadStatus = document.getElementById("upload-status");
+            const feedbackContainer =
+                document.getElementById("upload-feedback");
+
+            if (fileInput) {
+                fileInput.addEventListener("change", (e) => {
+                    const files = (e.target as HTMLInputElement).files;
+                    if (files && files.length > 0) {
+                        const fileName = files[0].name;
+                        if (uploadText)
+                            uploadText.innerText = "Photo Selected!";
+                        if (uploadStatus) uploadStatus.innerText = fileName;
+                        if (feedbackContainer)
+                            feedbackContainer.classList.add("text-primary");
+                    }
+                });
+            }
+        </script>
+
+        <button
+            type="submit"
+            class="w-full py-5 bg-mocha text-white font-bold text-lg rounded-2xl hover:bg-slate-800 transition-all shadow-xl shadow-mocha/20 transform active:scale-[0.98] cursor-pointer flex items-center justify-center gap-3"
+        >
+            Send My Smile Assessment
+            <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg
+            >
+        </button>
+
+        <!-- Social Proof below button -->
+        <div
+            class="pt-6 border-t border-slate-100 flex items-center justify-center gap-4 text-slate-400"
+        >
+            <div class="flex items-center gap-1">
+                <span class="text-yellow-400">★★★★★</span>
+                <span class="text-xs font-bold text-slate-500 uppercase"
+                    >Trusted by 2k+</span
+                >
+            </div>
+            <div class="w-1 h-1 rounded-full bg-slate-200"></div>
+            <div class="flex items-center gap-1">
+                <span
+                    class="text-xs font-bold text-slate-500 uppercase tracking-tighter"
+                    >100% Secure Enquiry</span
+                >
+            </div>
+        </div>
+    </form>
+</div>

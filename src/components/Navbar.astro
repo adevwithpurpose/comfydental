@@ -1,0 +1,174 @@
+---
+
+---
+
+<nav
+    class="sticky top-0 z-50 bg-soft-light/90 backdrop-blur-md shadow-sm border-b border-white/50"
+>
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="/" class="flex items-center group ps-4 md:ps-0">
+            <img
+                src="/logo.png"
+                alt="Comfy Dental - Pain-Free Premium Dentistry in Lahore"
+                width="200"
+                height="64"
+                class="h-10 sm:h-12 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform"
+            />
+        </a>
+
+        <!-- Desktop Links -->
+        <div
+            class="hidden md:flex items-center gap-10 text-slate-600 font-semibold"
+        >
+            <a href="/" class="hover:text-mocha transition-colors">Home</a>
+            <a href="/about" class="hover:text-mocha transition-colors"
+                >About Us</a
+            >
+            <a href="/services" class="hover:text-mocha transition-colors"
+                >Treatments</a
+            >
+            <a href="/gallery" class="hover:text-mocha transition-colors"
+                >Gallery</a
+            >
+            <a href="/patient-hub" class="hover:text-mocha transition-colors"
+                >Patient Hub</a
+            >
+            <a href="/contact" class="hover:text-mocha transition-colors"
+                >Contact</a
+            >
+        </div>
+
+        <!-- Buttons + Mobile Toggle -->
+        <div class="flex items-center gap-4">
+            <a
+                href="tel:+923401555530"
+                class="hidden lg:inline-flex items-center gap-2 px-4 py-2 text-mocha font-bold hover:text-slate-800 transition-colors"
+            >
+                +92 340 1555530
+            </a>
+            <a
+                href="/contact"
+                class="hidden sm:inline-flex items-center gap-2 px-8 py-3 bg-primary text-white rounded-2xl font-bold hover:bg-primary-light transition-all transform hover:scale-105 shadow-xl shadow-primary/20 cursor-pointer"
+            >
+                Virtual Assessment
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <button
+                id="menu-toggle"
+                class="md:hidden p-2 text-slate-600 hover:text-mocha transition-colors cursor-pointer"
+                aria-label="Toggle Menu"
+            >
+                <svg
+                    class="w-8 h-8"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div
+        id="mobile-drawer"
+        class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-[60] md:hidden opacity-0 pointer-events-none transition-opacity duration-300 overflow-hidden"
+    >
+        <div
+            class="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-white shadow-2xl p-8 flex flex-col translate-x-full transition-transform duration-300 border-l border-slate-100"
+            id="drawer-content"
+        >
+            <div class="flex items-center justify-between mb-12">
+                <span
+                    class="text-xs font-bold uppercase tracking-widest text-slate-400"
+                    >Navigation</span
+                >
+                <button
+                    id="menu-close"
+                    class="p-2 text-slate-600 hover:text-mocha"
+                >
+                    <svg
+                        class="w-8 h-8"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="flex flex-col gap-8 text-2xl font-bold text-slate-800">
+                <a href="/" class="hover:text-mocha transition-colors">Home</a>
+                <a href="/about" class="hover:text-mocha transition-colors"
+                    >About Us</a
+                >
+                <a href="/services" class="hover:text-mocha transition-colors"
+                    >Treatments</a
+                >
+                <a href="/gallery" class="hover:text-mocha transition-colors"
+                    >Gallery</a
+                >
+                <a
+                    href="/patient-hub"
+                    class="hover:text-mocha transition-colors">Patient Hub</a
+                >
+                <a href="/contact" class="hover:text-mocha transition-colors"
+                    >Contact</a
+                >
+            </div>
+
+            <div class="mt-auto space-y-4">
+                <a
+                    href="/contact"
+                    class="block w-full py-4 bg-primary text-white text-center font-bold rounded-2xl shadow-lg"
+                >
+                    Free Assessment
+                </a>
+                <a
+                    href="tel:+923401555530"
+                    class="block w-full py-4 text-center font-bold text-mocha border border-mocha/10 rounded-2xl"
+                >
+                    Call Now
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+    const toggle = document.getElementById("menu-toggle");
+    const close = document.getElementById("menu-close");
+    const drawer = document.getElementById("mobile-drawer");
+    const content = document.getElementById("drawer-content");
+
+    if (toggle && close && drawer && content) {
+        toggle.addEventListener("click", () => {
+            drawer.classList.remove("opacity-0", "pointer-events-none");
+            content.classList.remove("translate-x-full");
+        });
+
+        close.addEventListener("click", () => {
+            drawer.classList.add("opacity-0", "pointer-events-none");
+            content.classList.add("translate-x-full");
+        });
+
+        // Close on clicking outside
+        drawer.addEventListener("click", (e) => {
+            if (e.target === drawer) {
+                drawer.classList.add("opacity-0", "pointer-events-none");
+                content.classList.add("translate-x-full");
+            }
+        });
+    }
+</script>

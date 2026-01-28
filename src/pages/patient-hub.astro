@@ -1,0 +1,303 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const intakeSteps = [
+    {
+        title: "Digital Registration",
+        desc: "Complete your medical history and contact details from the comfort of your home.",
+        icon: "📝",
+        link: "#", // Placeholder for actual Jotform link
+        buttonText: "Start Intake Form",
+    },
+    {
+        title: "Virtual Consultation",
+        desc: "Send us photos of your smile for a preliminary assessment by Dr. Anam.",
+        icon: "📸",
+        link: "/contact",
+        buttonText: "Send Photos",
+    },
+    {
+        title: "Pre-Care Instructions",
+        desc: "Ensure you are ready for your appointment with our pre-care guidelines.",
+        icon: "📋",
+        link: "#",
+        buttonText: "View Guidelines",
+    },
+];
+
+const careGuides = [
+    {
+        title: "After Tooth Extraction",
+        category: "Post-Care",
+        link: "/care/tooth-extraction",
+    },
+    {
+        title: "Managing New Veneers",
+        category: "Post-Care",
+        link: "/care/veneers",
+    },
+    {
+        title: "Clear Aligner Maintenance",
+        category: "Routine",
+        link: "/care/aligners",
+    },
+    {
+        title: "Root Canal Recovery",
+        category: "Post-Care",
+        link: "/care/root-canal",
+    },
+];
+---
+
+<Layout title="Patient Hub - Comfy Dental">
+    <section class="bg-slate-50 py-20 border-b border-slate-100">
+        <div class="container mx-auto px-4 text-center">
+            <span
+                class="text-primary font-bold tracking-widest uppercase text-sm mb-4 block"
+                >Convenience First</span
+            >
+            <h1 class="text-4xl md:text-6xl font-bold text-slate-800 mb-6">
+                Patient Hub
+            </h1>
+            <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+                Everything you need for a seamless dental experience. Save time
+                by completing your paperwork online.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+                {
+                    intakeSteps.map((step) => (
+                        <div class="bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 group relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                            <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center text-4xl mb-8 group-hover:scale-110 group-hover:bg-primary/5 transition-all duration-500">
+                                {step.icon}
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-slate-800 mb-4 group-hover:text-primary transition-colors">
+                                {step.title}
+                            </h3>
+                            <p class="text-slate-500 mb-10 leading-relaxed text-sm md:text-base">
+                                {step.desc}
+                            </p>
+
+                            <a
+                                href={
+                                    step.title === "Digital Registration"
+                                        ? "/intake"
+                                        : step.link
+                                }
+                                class="inline-flex items-center gap-3 px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-primary transition-all shadow-lg shadow-slate-900/10 hover:shadow-primary/20 w-full justify-center text-sm"
+                            >
+                                {step.buttonText}
+                                <svg
+                                    class="w-4 h-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                                    />
+                                </svg>
+                            </a>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <div
+                class="bg-slate-900 rounded-[3.5rem] p-8 md:p-20 text-white overflow-hidden relative shadow-2xl shadow-slate-900/20"
+            >
+                <!-- Decorative Glows -->
+                <div
+                    class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] -mr-64 -mt-64 animate-pulse"
+                >
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-mocha/10 rounded-full blur-[80px] -ml-32 -mb-32"
+                >
+                </div>
+
+                <div
+                    class="relative z-10 flex flex-col lg:flex-row gap-16 items-center"
+                >
+                    <div class="lg:w-3/5">
+                        <div class="flex items-center gap-3 mb-6">
+                            <span
+                                class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary"
+                                >✓</span
+                            >
+                            <span
+                                class="font-bold tracking-widest uppercase text-sm text-primary"
+                                >Patient Education</span
+                            >
+                        </div>
+                        <h2
+                            class="text-4xl md:text-5xl font-bold mb-8 leading-tight"
+                        >
+                            Instructional <br /><span class="text-primary"
+                                >Care Library</span
+                            >
+                        </h2>
+                        <p
+                            class="text-slate-400 text-lg mb-10 leading-relaxed max-w-xl"
+                        >
+                            Access our expert-curated library of pre &
+                            post-treatment guidelines. Prepared by Dr. Anam to
+                            ensure your recovery is swift and comfortable.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {
+                                careGuides.map((guide) => (
+                                    <a
+                                        href={guide.link}
+                                        class="bg-white/5 border border-white/10 p-5 rounded-3xl flex items-center justify-between hover:bg-white/10 hover:border-white/20 transition-all cursor-pointer group"
+                                    >
+                                        <div>
+                                            <p class="text-[10px] text-primary font-black uppercase tracking-widest mb-1 opacity-80">
+                                                {guide.category}
+                                            </p>
+                                            <p class="font-bold text-slate-200 group-hover:text-white transition-colors">
+                                                {guide.title}
+                                            </p>
+                                        </div>
+                                        <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
+                                            <svg
+                                                class="w-5 h-5"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                stroke="currentColor"
+                                            >
+                                                <path
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="2.5"
+                                                    d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                                                />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                ))
+                            }
+                        </div>
+                    </div>
+                    <div class="lg:w-2/5 flex justify-center w-full">
+                        <div
+                            class="relative bg-white/5 p-10 rounded-[3rem] border border-white/10 backdrop-blur-xl w-full max-w-sm shadow-2xl"
+                        >
+                            <div class="flex justify-between items-center mb-8">
+                                <p
+                                    class="text-xs font-bold text-slate-400 uppercase tracking-widest"
+                                >
+                                    Common Questions
+                                </p>
+                                <span class="flex gap-1">
+                                    <div
+                                        class="w-1.5 h-1.5 rounded-full bg-primary/40 animate-bounce"
+                                    >
+                                    </div>
+                                    <div
+                                        class="w-1.5 h-1.5 rounded-full bg-primary/40 animate-bounce [animation-delay:-0.15s]"
+                                    >
+                                    </div>
+                                    <div
+                                        class="w-1.5 h-1.5 rounded-full bg-primary/40 animate-bounce [animation-delay:-0.3s]"
+                                    >
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="space-y-5">
+                                <div
+                                    class="p-4 bg-white/10 rounded-2xl text-sm border border-white/5 hover:bg-white/15 transition-colors cursor-help"
+                                >
+                                    <span
+                                        class="block text-primary font-bold text-[10px] uppercase mb-1"
+                                        >Whitening</span
+                                    >
+                                    How long do results last?
+                                </div>
+                                <div
+                                    class="p-4 bg-white/10 rounded-2xl text-sm border border-white/5 hover:bg-white/15 transition-colors cursor-help opacity-70"
+                                >
+                                    <span
+                                        class="block text-slate-400 font-bold text-[10px] uppercase mb-1"
+                                        >RCT</span
+                                    >
+                                    Is root canal therapy painful?
+                                </div>
+                                <div
+                                    class="p-4 bg-white/10 rounded-2xl text-sm border border-white/5 hover:bg-white/15 transition-colors cursor-help opacity-40"
+                                >
+                                    Care after dental implants?
+                                </div>
+                            </div>
+
+                            <!-- WhatsApp Contact Button -->
+                            <a
+                                href="https://wa.me/923401555530?text=Hi! I have a question about my treatment at Comfy Dental."
+                                target="_blank"
+                                class="mt-8 w-full py-5 bg-[#25D366] text-white font-bold rounded-2xl shadow-xl shadow-green-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3"
+                            >
+                                <svg
+                                    class="w-6 h-6 fill-current"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+                                    ></path>
+                                </svg>
+                                Chat with Clinic Assistant
+                            </a>
+
+                            <div
+                                class="mt-12 pt-8 border-t border-white/10 text-center"
+                            >
+                                <p
+                                    class="text-sm font-bold text-primary italic leading-relaxed"
+                                >
+                                    "Premium care is built on <span
+                                        class="text-white not-italic"
+                                        >informed patients</span
+                                    >."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section
+        class="py-20 bg-slate-50 uppercase tracking-tighter overflow-hidden whitespace-nowrap hidden md:block"
+    >
+        <div class="flex gap-20 animate-marquee">
+            <span class="text-8xl font-black text-slate-200">Convenience</span>
+            <span class="text-8xl font-black text-slate-200">Quality Care</span>
+            <span class="text-8xl font-black text-slate-200">Digital Hub</span>
+            <span class="text-8xl font-black text-slate-200">Comfy Dental</span>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+    .animate-marquee {
+        animation: marquee 30s linear infinite;
+    }
+</style>

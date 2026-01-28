@@ -1,0 +1,357 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const clinicTours = [
+    {
+        title: "Welcome to Comfy Dental",
+        desc: "Experience our anxiety-free boutique environment.",
+        src: "/herosection.mp4#t=4",
+        aspect: "aspect-[9/16]",
+    },
+    {
+        title: "The Patient Journey",
+        desc: "A behind-the-scenes look at how we design your comfort.",
+        src: "/gallery-vid2.mp4",
+        aspect: "aspect-[9/16]",
+    },
+];
+
+const patientStories = [
+    {
+        title: "Patient Transformation",
+        desc: "Hear how we changed Sarah's smile and confidence in one visit.",
+        src: "/review.mp4",
+        aspect: "aspect-[9/16]",
+    },
+    {
+        title: "A Heartfelt Review",
+        desc: "These kind of reviews make our heart so full.",
+        src: "/smile-review.mp4",
+        aspect: "aspect-[9/16]",
+    },
+    {
+        title: "National Hero Visit",
+        desc: "Broad Boy visits for a regular check-up and whitening.",
+        src: "/national-hero-visit.mp4#t=2",
+        aspect: "aspect-[9/16]",
+    },
+    {
+        title: "The Care We Provide",
+        desc: "Dr. Anam on building a calm, cozy, and truly personal space.",
+        src: "/patient-care-story.mp4#t=4",
+        aspect: "aspect-[9/16]",
+    },
+];
+
+const procedures = [
+    {
+        title: "Common Questions Answered",
+        desc: "Dr. Anam addresses the most frequent concerns patients have.",
+        src: "/dr-anam-faq.mp4#t=4",
+        aspect: "aspect-video",
+    },
+    {
+        title: "Dental Implant Placement",
+        desc: "A step-by-step guide to our precision implant procedure.",
+        src: "/dental-implant.mp4",
+        aspect: "aspect-video",
+    },
+];
+
+const expertSpotlights = [
+    {
+        title: "Teeth Transformation",
+        desc: "Simple solutions for front tooth breakdown and discolouration.",
+        src: "/tooth-breakdown-fix.mp4",
+        aspect: "aspect-[9/16]",
+    },
+    {
+        title: "Dr. Anam's Smile Makeover",
+        desc: "Dr. Anam shares her personal smile transformation journey.",
+        src: "/dr-anam-smile-makeover.mp4#t=4",
+        aspect: "aspect-[9/16]",
+    },
+];
+---
+
+<Layout title="Gallery - Comfy Dental">
+    <!-- Hero Section -->
+    <section class="bg-sand py-24 text-center">
+        <div class="container mx-auto px-4">
+            <span
+                class="text-sage font-bold tracking-wider uppercase text-sm mb-3 block"
+                >Visual Stories</span
+            >
+            <h1 class="text-4xl md:text-7xl font-bold text-slate-800 mb-6">
+                Comfy Gallery
+            </h1>
+            <p
+                class="text-xl text-slate-600 max-w-2xl mx-auto font-medium leading-relaxed"
+            >
+                Experience the atmosphere, the transformations, and the
+                expertise that makes Comfy Dental Lahore's most trusted
+                sanctuary.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 1: Clinic Showcase (Vertical) -->
+    <section class="py-20 bg-soft-light border-b border-sand/50">
+        <div class="container mx-auto px-4">
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-slate-800 mb-2">
+                    Clinic Showcase
+                </h2>
+                <p class="text-slate-500 font-medium">
+                    Take a virtual tour of our boutique facilities.
+                </p>
+            </div>
+
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 gap-10 max-w-4xl mx-auto"
+            >
+                {
+                    clinicTours.map((vid) => (
+                        <div class="group flex flex-col items-center">
+                            <div
+                                class={`relative rounded-4xl overflow-hidden shadow-2xl bg-slate-900 ${vid.aspect} w-full max-w-[320px] transform group-hover:scale-[1.02] transition-transform duration-500`}
+                            >
+                                <video
+                                    controls
+                                    class="w-full h-full object-cover"
+                                    preload="metadata"
+                                >
+                                    <source src={vid.src} type="video/mp4" />
+                                </video>
+                            </div>
+                            <div class="mt-6 text-center">
+                                <h3 class="text-xl font-bold text-slate-800 mb-1">
+                                    {vid.title}
+                                </h3>
+                                <p class="text-slate-500 text-sm font-medium">
+                                    {vid.desc}
+                                </p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Patient Stories (Vertical) -->
+    <section class="py-24 bg-sand/30">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center text-pretty">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-2">
+                    Patient Stories
+                </h2>
+                <p class="text-slate-500 font-medium text-lg">
+                    Real smiles, real relief. Hear directly from our community.
+                </p>
+            </div>
+
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto"
+            >
+                {
+                    patientStories.map((vid) => (
+                        <div class="group flex flex-col items-center text-center">
+                            <div
+                                class={`relative rounded-3xl overflow-hidden shadow-xl bg-slate-900 ${vid.aspect} w-full max-w-[280px] transform group-hover:-translate-y-2 transition-transform duration-500`}
+                            >
+                                <video
+                                    controls
+                                    class="w-full h-full object-cover"
+                                    preload="metadata"
+                                >
+                                    <source src={vid.src} type="video/mp4" />
+                                </video>
+                            </div>
+                            <div class="mt-6 px-2">
+                                <h3 class="text-lg font-bold text-slate-800 mb-1">
+                                    {vid.title}
+                                </h3>
+                                <p class="text-slate-500 text-sm font-medium leading-relaxed">
+                                    {vid.desc}
+                                </p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Learn & Expertise (3-Column Layout) -->
+    <section class="py-24 bg-soft-light transition-colors duration-1000">
+        <div class="container mx-auto px-4">
+            <div class="mb-20 text-center">
+                <h2 class="text-3xl md:text-5xl font-bold text-slate-800 mb-4">
+                    Learn & Expertise
+                </h2>
+                <p class="text-slate-500 font-medium text-lg max-w-2xl mx-auto">
+                    Demystifying high-end dentistry with painless precision and
+                    personal stories.
+                </p>
+            </div>
+
+            <div
+                class="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr_1fr] gap-12 max-w-7xl mx-auto items-start"
+            >
+                <!-- Column 1: Vertical Expert Spotlight -->
+                <div class="flex flex-col items-center">
+                    <div class="group w-full max-w-[300px]">
+                        <div
+                            class="relative rounded-[2rem] overflow-hidden shadow-xl bg-slate-900 aspect-[9/16] ring-1 ring-black/5 transform group-hover:scale-[1.02] transition-transform duration-500"
+                        >
+                            <video
+                                controls
+                                class="w-full h-full object-cover"
+                                preload="metadata"
+                            >
+                                <source
+                                    src={expertSpotlights[0].src}
+                                    type="video/mp4"
+                                />
+                            </video>
+                        </div>
+                        <div class="mt-6 text-center">
+                            <h4 class="text-lg font-bold text-slate-800 mb-1">
+                                {expertSpotlights[0].title}
+                            </h4>
+                            <p
+                                class="text-slate-500 text-sm font-medium leading-relaxed"
+                            >
+                                {expertSpotlights[0].desc}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Two Horizontal Procedure Guides Stacked -->
+                <div class="flex flex-col gap-12">
+                    {
+                        procedures.map((vid) => (
+                            <div class="group w-full">
+                                <div class="relative rounded-[2.5rem] overflow-hidden shadow-xl bg-slate-900 aspect-video ring-1 ring-black/5 transform group-hover:scale-[1.01] transition-transform duration-500">
+                                    <video
+                                        controls
+                                        class="w-full h-full object-cover"
+                                        preload="metadata"
+                                    >
+                                        <source
+                                            src={vid.src}
+                                            type="video/mp4"
+                                        />
+                                    </video>
+                                </div>
+                                <div class="mt-6">
+                                    <h4 class="text-xl font-bold text-slate-800 mb-2">
+                                        {vid.title}
+                                    </h4>
+                                    <p class="text-slate-500 font-medium leading-relaxed">
+                                        {vid.desc}
+                                    </p>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <!-- Column 3: Vertical Expert Spotlight -->
+                <div class="flex flex-col items-center">
+                    <div class="group w-full max-w-[300px]">
+                        <div
+                            class="relative rounded-[2rem] overflow-hidden shadow-xl bg-slate-900 aspect-[9/16] ring-1 ring-black/5 transform group-hover:scale-[1.02] transition-transform duration-500"
+                        >
+                            <video
+                                controls
+                                class="w-full h-full object-cover"
+                                preload="metadata"
+                            >
+                                <source
+                                    src={expertSpotlights[1].src}
+                                    type="video/mp4"
+                                />
+                            </video>
+                        </div>
+                        <div class="mt-6 text-center">
+                            <h4 class="text-xl font-bold text-slate-800 mb-1">
+                                {expertSpotlights[1].title}
+                            </h4>
+                            <p
+                                class="text-slate-500 text-sm font-medium leading-relaxed"
+                            >
+                                {expertSpotlights[1].desc}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section class="py-24 bg-sand/30">
+        <div class="container mx-auto px-4 text-center">
+            <div
+                class="max-w-4xl mx-auto bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 rounded-5xl p-1 md:p-12 shadow-2xl overflow-hidden"
+            >
+                <div
+                    class="bg-white/10 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-16 border border-white/20"
+                >
+                    <svg
+                        class="w-20 h-20 mx-auto mb-8 text-white"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                        ></path>
+                    </svg>
+                    <h4 class="text-4xl font-bold text-white mb-6">
+                        Experience the Daily Life
+                    </h4>
+                    <p
+                        class="text-white/90 mb-12 text-xl font-medium max-w-2xl mx-auto leading-relaxed"
+                    >
+                        Join our community of over 500+ happy patients and see
+                        the transformations as they happen.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                        <a
+                            href="https://www.instagram.com/comfydentall/reels/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center gap-4 px-12 py-6 bg-white text-purple-600 font-bold text-xl rounded-2xl hover:bg-slate-50 transition-all shadow-2xl"
+                        >
+                            Follow @comfydentall
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-28 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8">
+                Start Your Own Story
+            </h2>
+            <p
+                class="text-xl text-white/80 mb-12 max-w-2xl mx-auto leading-relaxed"
+            >
+                Boutique cosmetic dentistry tailored for the nervous patient.
+                Book your free consultation today.
+            </p>
+            <a
+                href="/contact"
+                class="inline-flex px-14 py-7 bg-white text-primary font-bold text-xl rounded-2xl hover:bg-sand transition-all shadow-2xl transform hover:scale-105 active:scale-95"
+            >
+                Schedule Consultation
+            </a>
+        </div>
+    </section>
+</Layout>

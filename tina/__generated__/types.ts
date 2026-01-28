@@ -82,8 +82,18 @@ export type Query = {
   collections: Array<Collection>;
   node: Node;
   document: DocumentNode;
-  post: Post;
-  postConnection: PostConnection;
+  global: Global;
+  globalConnection: GlobalConnection;
+  page: Page;
+  pageConnection: PageConnection;
+  service: Service;
+  serviceConnection: ServiceConnection;
+  doctor: Doctor;
+  doctorConnection: DoctorConnection;
+  testimonial: Testimonial;
+  testimonialConnection: TestimonialConnection;
+  gallery: Gallery;
+  galleryConnection: GalleryConnection;
 };
 
 
@@ -108,22 +118,102 @@ export type QueryDocumentArgs = {
 };
 
 
-export type QueryPostArgs = {
+export type QueryGlobalArgs = {
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
 
-export type QueryPostConnectionArgs = {
+export type QueryGlobalConnectionArgs = {
   before?: InputMaybe<Scalars['String']['input']>;
   after?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Float']['input']>;
   last?: InputMaybe<Scalars['Float']['input']>;
   sort?: InputMaybe<Scalars['String']['input']>;
-  filter?: InputMaybe<PostFilter>;
+  filter?: InputMaybe<GlobalFilter>;
+};
+
+
+export type QueryPageArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryPageConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<PageFilter>;
+};
+
+
+export type QueryServiceArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryServiceConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<ServiceFilter>;
+};
+
+
+export type QueryDoctorArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryDoctorConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<DoctorFilter>;
+};
+
+
+export type QueryTestimonialArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryTestimonialConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<TestimonialFilter>;
+};
+
+
+export type QueryGalleryArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryGalleryConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<GalleryFilter>;
 };
 
 export type DocumentFilter = {
-  post?: InputMaybe<PostFilter>;
+  global?: InputMaybe<GlobalFilter>;
+  page?: InputMaybe<PageFilter>;
+  service?: InputMaybe<ServiceFilter>;
+  doctor?: InputMaybe<DoctorFilter>;
+  testimonial?: InputMaybe<TestimonialFilter>;
+  gallery?: InputMaybe<GalleryFilter>;
 };
 
 export type DocumentConnectionEdges = {
@@ -163,12 +253,21 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Post | Folder;
+export type DocumentNode = Global | Page | Service | Doctor | Testimonial | Gallery | Folder;
 
-export type Post = Node & Document & {
-  __typename?: 'Post';
-  title: Scalars['String']['output'];
-  body?: Maybe<Scalars['JSON']['output']>;
+export type GlobalSocials = {
+  __typename?: 'GlobalSocials';
+  instagram?: Maybe<Scalars['String']['output']>;
+  facebook?: Maybe<Scalars['String']['output']>;
+};
+
+export type Global = Node & Document & {
+  __typename?: 'Global';
+  phone?: Maybe<Scalars['String']['output']>;
+  whatsapp?: Maybe<Scalars['String']['output']>;
+  address?: Maybe<Scalars['String']['output']>;
+  logo?: Maybe<Scalars['String']['output']>;
+  socials?: Maybe<GlobalSocials>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
@@ -181,28 +280,192 @@ export type StringFilter = {
   in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+export type ImageFilter = {
+  startsWith?: InputMaybe<Scalars['String']['input']>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type GlobalSocialsFilter = {
+  instagram?: InputMaybe<StringFilter>;
+  facebook?: InputMaybe<StringFilter>;
+};
+
+export type GlobalFilter = {
+  phone?: InputMaybe<StringFilter>;
+  whatsapp?: InputMaybe<StringFilter>;
+  address?: InputMaybe<StringFilter>;
+  logo?: InputMaybe<ImageFilter>;
+  socials?: InputMaybe<GlobalSocialsFilter>;
+};
+
+export type GlobalConnectionEdges = {
+  __typename?: 'GlobalConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Global>;
+};
+
+export type GlobalConnection = Connection & {
+  __typename?: 'GlobalConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<GlobalConnectionEdges>>>;
+};
+
+export type Page = Node & Document & {
+  __typename?: 'Page';
+  title: Scalars['String']['output'];
+  body?: Maybe<Scalars['JSON']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
 export type RichTextFilter = {
   startsWith?: InputMaybe<Scalars['String']['input']>;
   eq?: InputMaybe<Scalars['String']['input']>;
   exists?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type PostFilter = {
+export type PageFilter = {
   title?: InputMaybe<StringFilter>;
   body?: InputMaybe<RichTextFilter>;
 };
 
-export type PostConnectionEdges = {
-  __typename?: 'PostConnectionEdges';
+export type PageConnectionEdges = {
+  __typename?: 'PageConnectionEdges';
   cursor: Scalars['String']['output'];
-  node?: Maybe<Post>;
+  node?: Maybe<Page>;
 };
 
-export type PostConnection = Connection & {
-  __typename?: 'PostConnection';
+export type PageConnection = Connection & {
+  __typename?: 'PageConnection';
   pageInfo: PageInfo;
   totalCount: Scalars['Float']['output'];
-  edges?: Maybe<Array<Maybe<PostConnectionEdges>>>;
+  edges?: Maybe<Array<Maybe<PageConnectionEdges>>>;
+};
+
+export type Service = Node & Document & {
+  __typename?: 'Service';
+  title: Scalars['String']['output'];
+  icon?: Maybe<Scalars['String']['output']>;
+  shortDesc?: Maybe<Scalars['String']['output']>;
+  longDesc?: Maybe<Scalars['JSON']['output']>;
+  priceRange?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type ServiceFilter = {
+  title?: InputMaybe<StringFilter>;
+  icon?: InputMaybe<StringFilter>;
+  shortDesc?: InputMaybe<StringFilter>;
+  longDesc?: InputMaybe<RichTextFilter>;
+  priceRange?: InputMaybe<StringFilter>;
+};
+
+export type ServiceConnectionEdges = {
+  __typename?: 'ServiceConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Service>;
+};
+
+export type ServiceConnection = Connection & {
+  __typename?: 'ServiceConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<ServiceConnectionEdges>>>;
+};
+
+export type Doctor = Node & Document & {
+  __typename?: 'Doctor';
+  name: Scalars['String']['output'];
+  credentials?: Maybe<Scalars['String']['output']>;
+  bio?: Maybe<Scalars['JSON']['output']>;
+  photo?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type DoctorFilter = {
+  name?: InputMaybe<StringFilter>;
+  credentials?: InputMaybe<StringFilter>;
+  bio?: InputMaybe<RichTextFilter>;
+  photo?: InputMaybe<ImageFilter>;
+};
+
+export type DoctorConnectionEdges = {
+  __typename?: 'DoctorConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Doctor>;
+};
+
+export type DoctorConnection = Connection & {
+  __typename?: 'DoctorConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<DoctorConnectionEdges>>>;
+};
+
+export type Testimonial = Node & Document & {
+  __typename?: 'Testimonial';
+  patientName: Scalars['String']['output'];
+  review?: Maybe<Scalars['String']['output']>;
+  treatmentType?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type TestimonialFilter = {
+  patientName?: InputMaybe<StringFilter>;
+  review?: InputMaybe<StringFilter>;
+  treatmentType?: InputMaybe<StringFilter>;
+};
+
+export type TestimonialConnectionEdges = {
+  __typename?: 'TestimonialConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Testimonial>;
+};
+
+export type TestimonialConnection = Connection & {
+  __typename?: 'TestimonialConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<TestimonialConnectionEdges>>>;
+};
+
+export type Gallery = Node & Document & {
+  __typename?: 'Gallery';
+  procedureName: Scalars['String']['output'];
+  beforeImage?: Maybe<Scalars['String']['output']>;
+  afterImage?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type GalleryFilter = {
+  procedureName?: InputMaybe<StringFilter>;
+  beforeImage?: InputMaybe<ImageFilter>;
+  afterImage?: InputMaybe<ImageFilter>;
+};
+
+export type GalleryConnectionEdges = {
+  __typename?: 'GalleryConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Gallery>;
+};
+
+export type GalleryConnection = Connection & {
+  __typename?: 'GalleryConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<GalleryConnectionEdges>>>;
 };
 
 export type Mutation = {
@@ -212,8 +475,18 @@ export type Mutation = {
   deleteDocument: DocumentNode;
   createDocument: DocumentNode;
   createFolder: DocumentNode;
-  updatePost: Post;
-  createPost: Post;
+  updateGlobal: Global;
+  createGlobal: Global;
+  updatePage: Page;
+  createPage: Page;
+  updateService: Service;
+  createService: Service;
+  updateDoctor: Doctor;
+  createDoctor: Doctor;
+  updateTestimonial: Testimonial;
+  createTestimonial: Testimonial;
+  updateGallery: Gallery;
+  createGallery: Gallery;
 };
 
 
@@ -250,62 +523,326 @@ export type MutationCreateFolderArgs = {
 };
 
 
-export type MutationUpdatePostArgs = {
+export type MutationUpdateGlobalArgs = {
   relativePath: Scalars['String']['input'];
-  params: PostMutation;
+  params: GlobalMutation;
 };
 
 
-export type MutationCreatePostArgs = {
+export type MutationCreateGlobalArgs = {
   relativePath: Scalars['String']['input'];
-  params: PostMutation;
+  params: GlobalMutation;
+};
+
+
+export type MutationUpdatePageArgs = {
+  relativePath: Scalars['String']['input'];
+  params: PageMutation;
+};
+
+
+export type MutationCreatePageArgs = {
+  relativePath: Scalars['String']['input'];
+  params: PageMutation;
+};
+
+
+export type MutationUpdateServiceArgs = {
+  relativePath: Scalars['String']['input'];
+  params: ServiceMutation;
+};
+
+
+export type MutationCreateServiceArgs = {
+  relativePath: Scalars['String']['input'];
+  params: ServiceMutation;
+};
+
+
+export type MutationUpdateDoctorArgs = {
+  relativePath: Scalars['String']['input'];
+  params: DoctorMutation;
+};
+
+
+export type MutationCreateDoctorArgs = {
+  relativePath: Scalars['String']['input'];
+  params: DoctorMutation;
+};
+
+
+export type MutationUpdateTestimonialArgs = {
+  relativePath: Scalars['String']['input'];
+  params: TestimonialMutation;
+};
+
+
+export type MutationCreateTestimonialArgs = {
+  relativePath: Scalars['String']['input'];
+  params: TestimonialMutation;
+};
+
+
+export type MutationUpdateGalleryArgs = {
+  relativePath: Scalars['String']['input'];
+  params: GalleryMutation;
+};
+
+
+export type MutationCreateGalleryArgs = {
+  relativePath: Scalars['String']['input'];
+  params: GalleryMutation;
 };
 
 export type DocumentUpdateMutation = {
-  post?: InputMaybe<PostMutation>;
+  global?: InputMaybe<GlobalMutation>;
+  page?: InputMaybe<PageMutation>;
+  service?: InputMaybe<ServiceMutation>;
+  doctor?: InputMaybe<DoctorMutation>;
+  testimonial?: InputMaybe<TestimonialMutation>;
+  gallery?: InputMaybe<GalleryMutation>;
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type DocumentMutation = {
-  post?: InputMaybe<PostMutation>;
+  global?: InputMaybe<GlobalMutation>;
+  page?: InputMaybe<PageMutation>;
+  service?: InputMaybe<ServiceMutation>;
+  doctor?: InputMaybe<DoctorMutation>;
+  testimonial?: InputMaybe<TestimonialMutation>;
+  gallery?: InputMaybe<GalleryMutation>;
 };
 
-export type PostMutation = {
+export type GlobalSocialsMutation = {
+  instagram?: InputMaybe<Scalars['String']['input']>;
+  facebook?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type GlobalMutation = {
+  phone?: InputMaybe<Scalars['String']['input']>;
+  whatsapp?: InputMaybe<Scalars['String']['input']>;
+  address?: InputMaybe<Scalars['String']['input']>;
+  logo?: InputMaybe<Scalars['String']['input']>;
+  socials?: InputMaybe<GlobalSocialsMutation>;
+};
+
+export type PageMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   body?: InputMaybe<Scalars['JSON']['input']>;
 };
 
-export type PostPartsFragment = { __typename: 'Post', title: string, body?: any | null };
+export type ServiceMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  shortDesc?: InputMaybe<Scalars['String']['input']>;
+  longDesc?: InputMaybe<Scalars['JSON']['input']>;
+  priceRange?: InputMaybe<Scalars['String']['input']>;
+};
 
-export type PostQueryVariables = Exact<{
+export type DoctorMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  credentials?: InputMaybe<Scalars['String']['input']>;
+  bio?: InputMaybe<Scalars['JSON']['input']>;
+  photo?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type TestimonialMutation = {
+  patientName?: InputMaybe<Scalars['String']['input']>;
+  review?: InputMaybe<Scalars['String']['input']>;
+  treatmentType?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type GalleryMutation = {
+  procedureName?: InputMaybe<Scalars['String']['input']>;
+  beforeImage?: InputMaybe<Scalars['String']['input']>;
+  afterImage?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type GlobalPartsFragment = { __typename: 'Global', phone?: string | null, whatsapp?: string | null, address?: string | null, logo?: string | null, socials?: { __typename: 'GlobalSocials', instagram?: string | null, facebook?: string | null } | null };
+
+export type PagePartsFragment = { __typename: 'Page', title: string, body?: any | null };
+
+export type ServicePartsFragment = { __typename: 'Service', title: string, icon?: string | null, shortDesc?: string | null, longDesc?: any | null, priceRange?: string | null };
+
+export type DoctorPartsFragment = { __typename: 'Doctor', name: string, credentials?: string | null, bio?: any | null, photo?: string | null };
+
+export type TestimonialPartsFragment = { __typename: 'Testimonial', patientName: string, review?: string | null, treatmentType?: string | null };
+
+export type GalleryPartsFragment = { __typename: 'Gallery', procedureName: string, beforeImage?: string | null, afterImage?: string | null };
+
+export type GlobalQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type PostQuery = { __typename?: 'Query', post: { __typename: 'Post', id: string, title: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type GlobalQuery = { __typename?: 'Query', global: { __typename: 'Global', id: string, phone?: string | null, whatsapp?: string | null, address?: string | null, logo?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, socials?: { __typename: 'GlobalSocials', instagram?: string | null, facebook?: string | null } | null } };
 
-export type PostConnectionQueryVariables = Exact<{
+export type GlobalConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
   after?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Float']['input']>;
   last?: InputMaybe<Scalars['Float']['input']>;
   sort?: InputMaybe<Scalars['String']['input']>;
-  filter?: InputMaybe<PostFilter>;
+  filter?: InputMaybe<GlobalFilter>;
 }>;
 
 
-export type PostConnectionQuery = { __typename?: 'Query', postConnection: { __typename?: 'PostConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PostConnectionEdges', cursor: string, node?: { __typename: 'Post', id: string, title: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type GlobalConnectionQuery = { __typename?: 'Query', globalConnection: { __typename?: 'GlobalConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'GlobalConnectionEdges', cursor: string, node?: { __typename: 'Global', id: string, phone?: string | null, whatsapp?: string | null, address?: string | null, logo?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, socials?: { __typename: 'GlobalSocials', instagram?: string | null, facebook?: string | null } | null } | null } | null> | null } };
 
-export const PostPartsFragmentDoc = gql`
-    fragment PostParts on Post {
+export type PageQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type PageQuery = { __typename?: 'Query', page: { __typename: 'Page', id: string, title: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type PageConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<PageFilter>;
+}>;
+
+
+export type PageConnectionQuery = { __typename?: 'Query', pageConnection: { __typename?: 'PageConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PageConnectionEdges', cursor: string, node?: { __typename: 'Page', id: string, title: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+
+export type ServiceQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type ServiceQuery = { __typename?: 'Query', service: { __typename: 'Service', id: string, title: string, icon?: string | null, shortDesc?: string | null, longDesc?: any | null, priceRange?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type ServiceConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<ServiceFilter>;
+}>;
+
+
+export type ServiceConnectionQuery = { __typename?: 'Query', serviceConnection: { __typename?: 'ServiceConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ServiceConnectionEdges', cursor: string, node?: { __typename: 'Service', id: string, title: string, icon?: string | null, shortDesc?: string | null, longDesc?: any | null, priceRange?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+
+export type DoctorQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type DoctorQuery = { __typename?: 'Query', doctor: { __typename: 'Doctor', id: string, name: string, credentials?: string | null, bio?: any | null, photo?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type DoctorConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<DoctorFilter>;
+}>;
+
+
+export type DoctorConnectionQuery = { __typename?: 'Query', doctorConnection: { __typename?: 'DoctorConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'DoctorConnectionEdges', cursor: string, node?: { __typename: 'Doctor', id: string, name: string, credentials?: string | null, bio?: any | null, photo?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+
+export type TestimonialQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type TestimonialQuery = { __typename?: 'Query', testimonial: { __typename: 'Testimonial', id: string, patientName: string, review?: string | null, treatmentType?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type TestimonialConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<TestimonialFilter>;
+}>;
+
+
+export type TestimonialConnectionQuery = { __typename?: 'Query', testimonialConnection: { __typename?: 'TestimonialConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'TestimonialConnectionEdges', cursor: string, node?: { __typename: 'Testimonial', id: string, patientName: string, review?: string | null, treatmentType?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+
+export type GalleryQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type GalleryQuery = { __typename?: 'Query', gallery: { __typename: 'Gallery', id: string, procedureName: string, beforeImage?: string | null, afterImage?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type GalleryConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<GalleryFilter>;
+}>;
+
+
+export type GalleryConnectionQuery = { __typename?: 'Query', galleryConnection: { __typename?: 'GalleryConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'GalleryConnectionEdges', cursor: string, node?: { __typename: 'Gallery', id: string, procedureName: string, beforeImage?: string | null, afterImage?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+
+export const GlobalPartsFragmentDoc = gql`
+    fragment GlobalParts on Global {
+  __typename
+  phone
+  whatsapp
+  address
+  logo
+  socials {
+    __typename
+    instagram
+    facebook
+  }
+}
+    `;
+export const PagePartsFragmentDoc = gql`
+    fragment PageParts on Page {
   __typename
   title
   body
 }
     `;
-export const PostDocument = gql`
-    query post($relativePath: String!) {
-  post(relativePath: $relativePath) {
+export const ServicePartsFragmentDoc = gql`
+    fragment ServiceParts on Service {
+  __typename
+  title
+  icon
+  shortDesc
+  longDesc
+  priceRange
+}
+    `;
+export const DoctorPartsFragmentDoc = gql`
+    fragment DoctorParts on Doctor {
+  __typename
+  name
+  credentials
+  bio
+  photo
+}
+    `;
+export const TestimonialPartsFragmentDoc = gql`
+    fragment TestimonialParts on Testimonial {
+  __typename
+  patientName
+  review
+  treatmentType
+}
+    `;
+export const GalleryPartsFragmentDoc = gql`
+    fragment GalleryParts on Gallery {
+  __typename
+  procedureName
+  beforeImage
+  afterImage
+}
+    `;
+export const GlobalDocument = gql`
+    query global($relativePath: String!) {
+  global(relativePath: $relativePath) {
     ... on Document {
       _sys {
         filename
@@ -318,13 +855,13 @@ export const PostDocument = gql`
       }
       id
     }
-    ...PostParts
+    ...GlobalParts
   }
 }
-    ${PostPartsFragmentDoc}`;
-export const PostConnectionDocument = gql`
-    query postConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PostFilter) {
-  postConnection(
+    ${GlobalPartsFragmentDoc}`;
+export const GlobalConnectionDocument = gql`
+    query globalConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: GlobalFilter) {
+  globalConnection(
     before: $before
     after: $after
     first: $first
@@ -354,20 +891,335 @@ export const PostConnectionDocument = gql`
           }
           id
         }
-        ...PostParts
+        ...GlobalParts
       }
     }
   }
 }
-    ${PostPartsFragmentDoc}`;
+    ${GlobalPartsFragmentDoc}`;
+export const PageDocument = gql`
+    query page($relativePath: String!) {
+  page(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...PageParts
+  }
+}
+    ${PagePartsFragmentDoc}`;
+export const PageConnectionDocument = gql`
+    query pageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PageFilter) {
+  pageConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...PageParts
+      }
+    }
+  }
+}
+    ${PagePartsFragmentDoc}`;
+export const ServiceDocument = gql`
+    query service($relativePath: String!) {
+  service(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...ServiceParts
+  }
+}
+    ${ServicePartsFragmentDoc}`;
+export const ServiceConnectionDocument = gql`
+    query serviceConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ServiceFilter) {
+  serviceConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...ServiceParts
+      }
+    }
+  }
+}
+    ${ServicePartsFragmentDoc}`;
+export const DoctorDocument = gql`
+    query doctor($relativePath: String!) {
+  doctor(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...DoctorParts
+  }
+}
+    ${DoctorPartsFragmentDoc}`;
+export const DoctorConnectionDocument = gql`
+    query doctorConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: DoctorFilter) {
+  doctorConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...DoctorParts
+      }
+    }
+  }
+}
+    ${DoctorPartsFragmentDoc}`;
+export const TestimonialDocument = gql`
+    query testimonial($relativePath: String!) {
+  testimonial(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...TestimonialParts
+  }
+}
+    ${TestimonialPartsFragmentDoc}`;
+export const TestimonialConnectionDocument = gql`
+    query testimonialConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: TestimonialFilter) {
+  testimonialConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...TestimonialParts
+      }
+    }
+  }
+}
+    ${TestimonialPartsFragmentDoc}`;
+export const GalleryDocument = gql`
+    query gallery($relativePath: String!) {
+  gallery(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...GalleryParts
+  }
+}
+    ${GalleryPartsFragmentDoc}`;
+export const GalleryConnectionDocument = gql`
+    query galleryConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: GalleryFilter) {
+  galleryConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...GalleryParts
+      }
+    }
+  }
+}
+    ${GalleryPartsFragmentDoc}`;
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
-      post(variables: PostQueryVariables, options?: C): Promise<{data: PostQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PostQueryVariables, query: string}> {
-        return requester<{data: PostQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PostQueryVariables, query: string}, PostQueryVariables>(PostDocument, variables, options);
+      global(variables: GlobalQueryVariables, options?: C): Promise<{data: GlobalQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: GlobalQueryVariables, query: string}> {
+        return requester<{data: GlobalQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: GlobalQueryVariables, query: string}, GlobalQueryVariables>(GlobalDocument, variables, options);
       },
-    postConnection(variables?: PostConnectionQueryVariables, options?: C): Promise<{data: PostConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PostConnectionQueryVariables, query: string}> {
-        return requester<{data: PostConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PostConnectionQueryVariables, query: string}, PostConnectionQueryVariables>(PostConnectionDocument, variables, options);
+    globalConnection(variables?: GlobalConnectionQueryVariables, options?: C): Promise<{data: GlobalConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: GlobalConnectionQueryVariables, query: string}> {
+        return requester<{data: GlobalConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: GlobalConnectionQueryVariables, query: string}, GlobalConnectionQueryVariables>(GlobalConnectionDocument, variables, options);
+      },
+    page(variables: PageQueryVariables, options?: C): Promise<{data: PageQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PageQueryVariables, query: string}> {
+        return requester<{data: PageQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PageQueryVariables, query: string}, PageQueryVariables>(PageDocument, variables, options);
+      },
+    pageConnection(variables?: PageConnectionQueryVariables, options?: C): Promise<{data: PageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PageConnectionQueryVariables, query: string}> {
+        return requester<{data: PageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PageConnectionQueryVariables, query: string}, PageConnectionQueryVariables>(PageConnectionDocument, variables, options);
+      },
+    service(variables: ServiceQueryVariables, options?: C): Promise<{data: ServiceQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ServiceQueryVariables, query: string}> {
+        return requester<{data: ServiceQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ServiceQueryVariables, query: string}, ServiceQueryVariables>(ServiceDocument, variables, options);
+      },
+    serviceConnection(variables?: ServiceConnectionQueryVariables, options?: C): Promise<{data: ServiceConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ServiceConnectionQueryVariables, query: string}> {
+        return requester<{data: ServiceConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ServiceConnectionQueryVariables, query: string}, ServiceConnectionQueryVariables>(ServiceConnectionDocument, variables, options);
+      },
+    doctor(variables: DoctorQueryVariables, options?: C): Promise<{data: DoctorQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: DoctorQueryVariables, query: string}> {
+        return requester<{data: DoctorQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: DoctorQueryVariables, query: string}, DoctorQueryVariables>(DoctorDocument, variables, options);
+      },
+    doctorConnection(variables?: DoctorConnectionQueryVariables, options?: C): Promise<{data: DoctorConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: DoctorConnectionQueryVariables, query: string}> {
+        return requester<{data: DoctorConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: DoctorConnectionQueryVariables, query: string}, DoctorConnectionQueryVariables>(DoctorConnectionDocument, variables, options);
+      },
+    testimonial(variables: TestimonialQueryVariables, options?: C): Promise<{data: TestimonialQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: TestimonialQueryVariables, query: string}> {
+        return requester<{data: TestimonialQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: TestimonialQueryVariables, query: string}, TestimonialQueryVariables>(TestimonialDocument, variables, options);
+      },
+    testimonialConnection(variables?: TestimonialConnectionQueryVariables, options?: C): Promise<{data: TestimonialConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: TestimonialConnectionQueryVariables, query: string}> {
+        return requester<{data: TestimonialConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: TestimonialConnectionQueryVariables, query: string}, TestimonialConnectionQueryVariables>(TestimonialConnectionDocument, variables, options);
+      },
+    gallery(variables: GalleryQueryVariables, options?: C): Promise<{data: GalleryQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: GalleryQueryVariables, query: string}> {
+        return requester<{data: GalleryQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: GalleryQueryVariables, query: string}, GalleryQueryVariables>(GalleryDocument, variables, options);
+      },
+    galleryConnection(variables?: GalleryConnectionQueryVariables, options?: C): Promise<{data: GalleryConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: GalleryConnectionQueryVariables, query: string}> {
+        return requester<{data: GalleryConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: GalleryConnectionQueryVariables, query: string}, GalleryConnectionQueryVariables>(GalleryConnectionDocument, variables, options);
       }
     };
   }

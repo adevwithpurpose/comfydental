@@ -1,5 +1,49 @@
-fragment PostParts on Post {
+fragment GlobalParts on Global {
+  __typename
+  phone
+  whatsapp
+  address
+  logo
+  socials {
+    __typename
+    instagram
+    facebook
+  }
+}
+
+fragment PageParts on Page {
   __typename
   title
   body
+}
+
+fragment ServiceParts on Service {
+  __typename
+  title
+  icon
+  shortDesc
+  longDesc
+  priceRange
+}
+
+fragment DoctorParts on Doctor {
+  __typename
+  name
+  credentials
+  bio
+  photo
+}
+
+fragment TestimonialParts on Testimonial {
+  __typename
+  patientName
+  review
+  treatmentType
+}
+
+fragment GalleryParts on Gallery {
+  __typename
+  procedureName
+  beforeImage
+  afterImage
 }
