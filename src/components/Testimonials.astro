@@ -36,15 +36,19 @@ const videoTestimonials = [
 ];
 ---
 
-<section class="py-24 bg-sand">
+<section class="py-16 bg-sand">
     <div class="container mx-auto px-4">
         <div class="text-center mb-16">
             <span
                 class="text-mocha font-bold tracking-wider uppercase text-xs mb-3 block"
                 >Kind Words</span
             >
-            <h2 class="text-3xl md:text-5xl font-bold text-slate-800 mb-6">
-                Patient Stories
+            <h2
+                class="text-3xl md:text-5xl font-bold text-slate-800 mb-6 leading-tight"
+            >
+                Patient <span class="font-serif italic text-mocha font-medium"
+                    >Stories</span
+                >
             </h2>
             <p
                 class="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed font-medium"
@@ -61,7 +65,7 @@ const videoTestimonials = [
             {
                 videoTestimonials.map((vid) => (
                     <div class="group flex flex-col items-center">
-                        <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-slate-900 aspect-[9/16] w-full max-w-[280px] transform group-hover:scale-[1.02] transition-transform duration-500">
+                        <div class="relative rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.3)] bg-slate-900 border border-white/20 aspect-[9/16] w-full max-w-[280px] transform group-hover:scale-[1.02] transition-transform duration-500">
                             <video
                                 controls
                                 class="w-full h-full object-cover"
@@ -177,7 +181,7 @@ const videoTestimonials = [
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             {
                 testimonials.map((t) => (
-                    <div class="bg-soft-light p-10 rounded-[2.5rem] shadow-lg relative border border-white group hover:-translate-y-2 transition-transform duration-500">
+                    <div class="bg-white p-10 rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative border border-white group hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-500">
                         <div class="text-4xl text-mocha/20 font-serif mb-6 group-hover:text-mocha/40 transition-colors">
                             “
                         </div>

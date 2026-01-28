@@ -4,48 +4,48 @@ const services = [
         title: "Porcelain Veneers",
         desc: "Custom-crafted smile transformations that blend world-class artistry with natural aesthetics.",
         comfort: "AI Smile Preview | Painless Prep",
-        icon: "✨",
+        icon: "sparkles",
         link: "/services#smile-makeovers-veneers",
     },
     {
         title: "Sleep Dentistry",
         desc: "Complete your dental work while you dream. Ideal for high-anxiety patients or complex procedures.",
         comfort: "IV Sedation | Dedicated Monitoring",
-        icon: "🌙",
+        icon: "moon",
         link: "/guides/anxiety-free",
     },
     {
         title: "Invisalign®",
         desc: "Straighten your teeth discreetly with clear aligners and 3D digital progress tracking.",
         comfort: "No Gag Scans | Virtual Progress",
-        icon: "💎",
+        icon: "sparkles",
         link: "/services#clear-aligners-braces",
     },
     {
         title: "Dental Implants",
         desc: "Permanent, functional, and beautiful tooth replacements using precision-guided technology.",
         comfort: "Laser Precision | Minimal Recovery",
-        icon: "🦷",
+        icon: "medical",
         link: "/services#dental-implants",
     },
     {
         title: "Smile Makeovers",
         desc: "A comprehensive approach to restoring function and beauty tailored to your unique facial features.",
         comfort: "Whole-Face Analysis | Spa Environment",
-        icon: "🎭",
+        icon: "smile",
         link: "/services#smile-makeovers-veneers",
     },
     {
         title: "Emergency Care",
         desc: "Immediate relief for tooth pain or trauma in a calm, soothing environment.",
         comfort: "Same-Day Relief | Gentle Triage",
-        icon: "🛡️",
+        icon: "shield",
         link: "/contact",
     },
 ];
 ---
 
-<section id="services" class="py-20 bg-sand">
+<section id="services" class="py-16 bg-sand">
     <div class="container mx-auto px-4">
         <div
             class="flex flex-col md:flex-row items-end justify-between mb-12 gap-8"
@@ -55,8 +55,12 @@ const services = [
                     class="text-mocha font-bold tracking-wider uppercase text-xs mb-2 block"
                     >Boutique Treatments</span
                 >
-                <h2 class="text-2xl md:text-4xl font-bold text-slate-800">
-                    The Anxiety-Free Treatment Hub
+                <h2
+                    class="text-3xl md:text-5xl font-bold text-slate-800 leading-tight"
+                >
+                    The <span class="font-serif italic text-mocha font-medium"
+                        >Anxiety-Free</span
+                    > Treatment Hub
                 </h2>
             </div>
             <div class="max-w-sm hidden md:block">
@@ -70,11 +74,85 @@ const services = [
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {
                 services.map((service) => (
-                    <div class="group bg-white p-1 rounded-3xl border border-white shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden">
+                    <div class="group bg-white p-1 rounded-3xl border border-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-500 overflow-hidden">
                         <div class="p-6">
                             <div class="flex items-start justify-between mb-4">
-                                <div class="w-12 h-12 bg-sand rounded-xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
-                                    {service.icon}
+                                <div class="w-12 h-12 bg-sand rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    {service.icon === "sparkles" && (
+                                        <svg
+                                            class="w-6 h-6 text-mocha"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                                            />
+                                        </svg>
+                                    )}
+                                    {service.icon === "moon" && (
+                                        <svg
+                                            class="w-6 h-6 text-mocha"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                                            />
+                                        </svg>
+                                    )}
+                                    {service.icon === "medical" && (
+                                        <svg
+                                            class="w-6 h-6 text-mocha"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                                            />
+                                        </svg>
+                                    )}
+                                    {service.icon === "smile" && (
+                                        <svg
+                                            class="w-6 h-6 text-mocha"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                            />
+                                        </svg>
+                                    )}
+                                    {service.icon === "shield" && (
+                                        <svg
+                                            class="w-6 h-6 text-mocha"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                                            />
+                                        </svg>
+                                    )}
                                 </div>
                                 <div class="bg-sage/5 border border-sage/10 px-3 py-1.5 rounded-lg">
                                     <span class="block text-[10px] font-bold text-sage uppercase tracking-widest text-center">

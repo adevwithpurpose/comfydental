@@ -3,19 +3,19 @@ const pillars = [
     {
         title: "Fear of Pain?",
         desc: "We utilize advanced IV and conscious sedation options to ensure you feel absolutely nothing during your transformation.",
-        icon: "🌙",
+        icon: "moon",
         color: "bg-sage/10 text-sage",
     },
     {
         title: "Fear of Results?",
         desc: "See your future smile before we start. Our AI-powered digital smile design previews give you 100% confidence.",
-        icon: "✨",
+        icon: "sparkles",
         color: "bg-mocha/10 text-mocha",
     },
     {
         title: "Fear of Cost?",
         desc: "Premium care should be accessible. We offer transparent 0% financing and tailored monthly payment plans.",
-        icon: "💎",
+        icon: "heart",
         color: "bg-champagne/20 text-slate-700",
     },
 ];
@@ -23,12 +23,16 @@ const pillars = [
 
 <section
     id="empathy-bridge"
-    class="py-24 bg-soft-light transition-colors duration-1000"
+    class="py-20 bg-soft-light transition-colors duration-1000"
 >
     <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto text-center mb-16">
-            <h2 class="text-3xl md:text-5xl font-bold text-slate-800 mb-6">
-                We Understand Why You've Been Waiting
+            <h2
+                class="text-3xl md:text-5xl font-bold text-slate-800 mb-6 leading-tight"
+            >
+                We <span class="font-serif italic text-mocha font-medium"
+                    >Understand</span
+                > Why You've Been Waiting
             </h2>
             <p
                 class="text-slate-600 text-lg md:text-xl leading-relaxed font-medium"
@@ -42,11 +46,55 @@ const pillars = [
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             {
                 pillars.map((pillar) => (
-                    <div class="p-10 rounded-4xl bg-sand border border-white hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 group">
+                    <div class="p-10 rounded-4xl bg-white border border-white shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_60px_-12px_rgba(0,0,0,0.1)] transition-all duration-500 group">
                         <div
-                            class={`w-16 h-16 ${pillar.color} rounded-2xl flex items-center justify-center text-3xl mb-8 transform group-hover:rotate-6 transition-transform`}
+                            class={`w-16 h-16 ${pillar.color} rounded-2xl flex items-center justify-center mb-8 transform group-hover:rotate-6 transition-transform`}
                         >
-                            {pillar.icon}
+                            {pillar.icon === "moon" && (
+                                <svg
+                                    class="w-8 h-8"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                                    />
+                                </svg>
+                            )}
+                            {pillar.icon === "sparkles" && (
+                                <svg
+                                    class="w-8 h-8"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                                    />
+                                </svg>
+                            )}
+                            {pillar.icon === "heart" && (
+                                <svg
+                                    class="w-8 h-8"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                                    />
+                                </svg>
+                            )}
                         </div>
                         <h3 class="text-2xl font-bold text-slate-800 mb-4">
                             {pillar.title}

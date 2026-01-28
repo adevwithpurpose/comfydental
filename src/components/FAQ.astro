@@ -23,7 +23,7 @@ const faqs = [
 ];
 ---
 
-<section id="faq" class="py-24 bg-sand">
+<section id="faq" class="py-16 bg-sand">
     <div class="container mx-auto px-4">
         <div class="max-w-3xl mx-auto">
             <div class="text-center mb-16">
@@ -31,8 +31,13 @@ const faqs = [
                     class="text-mocha font-bold tracking-wider uppercase text-xs mb-3 block"
                     >Common Inquiries</span
                 >
-                <h2 class="text-3xl md:text-5xl font-bold text-slate-800 mb-6">
-                    Frequently Asked Questions
+                <h2
+                    class="text-3xl md:text-5xl font-bold text-slate-800 mb-6 leading-tight"
+                >
+                    Frequently <span
+                        class="font-serif italic text-mocha font-medium"
+                        >Asked</span
+                    > Questions
                 </h2>
                 <p class="text-slate-600 text-lg font-medium">
                     Clear answers for your peace of mind.
@@ -42,7 +47,7 @@ const faqs = [
             <div class="space-y-4">
                 {
                     faqs.map((faq, index) => (
-                        <div class="bg-soft-light rounded-3xl border border-white shadow-sm overflow-hidden transition-all hover:shadow-md">
+                        <div class="bg-white rounded-3xl border border-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] overflow-hidden transition-all hover:shadow-[0_12px_30px_-8px_rgba(0,0,0,0.1)]">
                             <details class="group">
                                 <summary class="flex items-center justify-between p-6 md:p-8 cursor-pointer list-none">
                                     <h3 class="text-lg md:text-xl font-bold text-slate-800 pr-8">

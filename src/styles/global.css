@@ -2,8 +2,10 @@
 @import "tailwindcss";
 
 @theme {
+  /* Primary Brand Colors - Warm & Approachable */
   --color-primary: #84cc16;
   --color-primary-light: #a3e635;
+  --color-primary-dark: #65a30d;
 
   /* Quiet Luxury & Biophilic Palette */
   --color-mocha: #A38F85;
@@ -14,19 +16,91 @@
   --color-soft-light: #FBFBFA;
   /* Eye-strain reduction white */
   --color-slate-800: #1e293b;
+  --color-slate-700: #334155;
   --color-slate-600: #475569;
 
   --color-surface-gray: #f8fafc;
 
+  /* Typography */
   --font-sans: "Plus Jakarta Sans", "Outfit", sans-serif;
 
+  /* Spacing - Mobile Optimized */
+  --spacing-mobile-x: 1rem;
+  /* px-4 for mobile */
+  --spacing-mobile-y: 0.75rem;
+  /* py-3 for mobile */
+  --spacing-desktop-x: 1.5rem;
+  /* px-6 for desktop */
+  --spacing-desktop-y: 1rem;
+  /* py-4 for desktop */
+
+  /* Border Radius */
   --radius-2xl: 1rem;
   --radius-3xl: 1.5rem;
   --radius-4xl: 2rem;
+
+  /* Accessibility & Interaction */
+  --focus-ring-width: 3px;
+  --focus-ring-color: #84cc16;
+  --focus-ring-offset: 2px;
+  --touch-target-min: 44px;
+  /* WCAG minimum touch target */
+
+  /* Transitions */
+  --transition-fast: 150ms;
+  --transition-base: 200ms;
+  --transition-slow: 300ms;
 }
 
 @layer base {
+
+  /* Smooth Scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
   body {
     @apply bg-sand font-sans text-slate-700 antialiased;
+    /* Minimum font size for mobile readability */
+    font-size: clamp(14px, 2.5vw, 16px);
+  }
+
+  /* Focus Ring for Accessibility */
+  *:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+    border-radius: 0.25rem;
+  }
+
+  /* Remove default focus for mouse users, keep for keyboard */
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Ensure minimum touch targets on mobile */
+  @media (max-width: 768px) {
+
+    button,
+    a[role="button"],
+    input[type="button"],
+    input[type="submit"] {
+      min-height: var(--touch-target-min);
+      min-width: var(--touch-target-min);
+    }
   }
 }
